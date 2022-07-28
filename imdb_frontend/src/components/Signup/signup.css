@@ -1,0 +1,195 @@
+*{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.container{
+    height: 650px;
+    width: 100%;
+    background-color: rgb(235, 225, 212);
+    /* border: 1px solid red; */
+}
+.Middle_container{
+    width: 75%;
+    margin: auto;
+    background-color: white;
+    height:500px;
+}
+.sigup_container{
+    height: 492px;
+    /* border: 1px solid black; */
+    width: 80%;
+    margin: auto;
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-around;
+}
+.signup_button{
+    /* border: 1px solid rebeccapurple; */
+    height:450px ;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 15px;
+}
+.bar{
+    height:300px ;
+    width: 0.1%;
+    background-color: gray;
+    margin-top: 15px;
+}
+.Benefits{
+    /* border: 1px solid rgb(12, 8, 1); */
+    height:300px ;
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* justify-content: center; */
+    margin-top: 15px;
+}
+.sigbup_button_div{
+    height: 250px;
+    /* border: 1px solid red; */
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    /* align-items:center; */
+    /* justify-content: space-around; */
+    /* column-gap: 0px; */
+    /* margin: 15px 0px; */
+}
+.button_containet{
+    border:1px solid gray;
+    border-radius: 5px;
+    height: 35px;
+    width: 80%;
+    display: flex;
+    flex-direction: row;align-items: center;
+    justify-content: space-around;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(148, 146, 138);
+    gap: 10px;
+    margin: 5px auto;
+    cursor: pointer;
+
+}
+
+.button_options{
+    /* border: 1px solid blue; */
+    height: 35px;
+    width: 80%;
+    display: flex;
+    flex-direction: row;align-items: center;
+    justify-content: space-around;
+    font-size: 13px;
+    font-weight: bold;
+    color: rgb(59, 112, 182);
+    gap: 10px;
+    margin: 5px auto;  
+    
+}
+.details_benefits_conatiner{
+    height: 250px;
+    /* border: 1px solid rebeccapurple; */
+    width: 100%;
+    margin: 10px 0px;
+    display: flex;
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* justify-content: center; */
+    flex-direction: column;
+
+}
+.details_benefits{
+    /* border: 1px solid gray; */
+    height: auto;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    column-gap: 5px;
+    margin-top: 5px;
+    
+}
+.details_benefits b{
+font-weight:900;
+color: black;
+
+}
+.details_benefits p{
+    text-align: left;
+}
+.other_login{
+         /* border: 1px solid blue;  */
+        height: 150px;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-around;
+        font-size: 13px;
+        font-weight: bold;
+        /* color: rgb(59, 112, 182); */
+        gap: 10px;
+        margin: -20px auto;  
+        
+}
+.other{
+  
+        /* border:1px solid rgb(0, 0, 0); */
+        border-radius: 5px;
+        height: 30px;
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+     align-items: center;
+        justify-content: space-around;
+        font-size: 16px;
+        font-weight: bold;
+        color: rgb(0, 0, 0);
+        gap: 10px;
+        margin: 5px auto;
+        cursor: pointer;
+    
+    
+}
+.create_account{
+    background-color: rgba(207, 207, 19, 0.829);
+    width: 90%;
+    color: black;
+}
+.some_message{
+  font-size: 10px;
+}
+.some_message span{
+    color: blue;
+}
+.recebtview{
+  
+        width: 75%;
+        margin: auto;
+        background-color: rgb(199, 194, 194);
+        height:100px;
+      
+}
+.recenthistory{
+    height: 50px;
+    /* border: 1px solid green; */
+    width: 95%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.Recently_Viewed{
+    font-weight: bold;
+    color: gray;
+}
+.viewed_p{
+    font-size: 13px;
+    color: blue;
+}
+.viewed_p:hover{
+    text-decoration: underline;
+}
