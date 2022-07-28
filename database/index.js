@@ -4,10 +4,12 @@ const cores = require("cors")
 const all_movies_route = require("./router/all_movies")
 const topPics = require("./router/TopMovies")
 const slidingImage = require("./router/Slider")
+const userRoute = require("./router/user")
 
 const app = express()
 app.use(cores())
 app.use(express())
+
 
 
 
@@ -18,6 +20,7 @@ app.get('/',(req,res)=>{
     })
 })
 // app.get('/allmovies')
+app.use(userRoute)
 app.use(topPics)
 app.use(all_movies_route)
 app.use(slidingImage)
