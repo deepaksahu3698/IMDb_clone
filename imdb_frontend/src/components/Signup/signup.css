@@ -6,7 +6,7 @@
     height: 650px;
     width: 100%;
     background-color: rgb(235, 225, 212);
-    /* border: 1px solid red; */
+    border: 1px solid red;
 }
 .Middle_container{
     width: 75%;
@@ -176,7 +176,7 @@ color: black;
 }
 .recenthistory{
     height: 50px;
-    /* border: 1px solid green; */
+    border: 1px solid green;
     width: 95%;
     margin: auto;
     display: flex;

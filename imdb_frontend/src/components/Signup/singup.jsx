@@ -4,8 +4,18 @@ import imdb from "./ImdbLogo.png"
 import google from "./googlelogo.png"
 import apple from "./apple.png"
 import amazon from "./amazonlogo.png"
+import { Routes, Route ,useNavigate} from "react-router-dom";
+import Createaccount from "../Createaccount/createaccount";
+
+
+import {Link} from "react-router-dom"
+
  const SignUp=()=>{
 
+    const navigate =useNavigate()
+  const handletogocreate=()=>{
+navigate("/register")
+  }
 return(
 <div>
 <div className="container">
@@ -47,7 +57,10 @@ return(
     </div>
     <div className="button_containet create_account">
    
-        <p>Create a New Account</p>
+       <button  onClick={handletogocreate}><p>Create a New Account</p></button>
+       {/* <Routes>
+        <Route path="/createaccount" element={<Createaccount/>}></Route>
+       </Routes> */}
     </div>
     <div className="some_message">
         <p>By signing in, you agree to IMDb's <span> Conditions of Use </span> and <span> Privacy Policy</span></p>

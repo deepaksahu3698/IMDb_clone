@@ -1,0 +1,128 @@
+.container_creareaccount_login{
+    height: 600px;
+    width: 30%;
+    margin: 20px auto;
+    background-color: rgb(255, 255, 255);
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+.fromcontainer_login{
+    /* border: 1px solid red; */
+  width: 90%;
+  height: 640px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+.input_container_login{
+    border: 1px solid rgb(165, 165, 165);
+
+    width: 95%;
+    height: 450px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* justify-content: center; */
+}
+.createheadder_login{
+    margin-left: 10px;
+}
+.inputbox_login{
+    margin-top: 5px;
+    margin-left: 10px;
+    font-weight: 100;
+}
+.login{
+    /* border: 1px solid blueviolet; */
+    width: 100%;
+    margin-top: 20px;
+    height: 30px;
+}
+.login button{
+    border: 1px solid rgb(44, 39, 39);
+    background-color: rgb(218, 192, 47);
+    width: 93%;
+    border-radius: 3px;
+ 
+    height: 30px;
+    font-weight: bold;
+    font-size: 13px;
+}
+.alreadyhaveaccount_login{
+    /* border: 1px solid green; */
+    font-size: 14px;
+    margin-left: 10px;
+    margin-top:60px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+span{
+    color: blue;
+}
+span:hover{
+    text-decoration: underline;
+}
+.help_contaire_login{
+    height: 90px;
+    width: 70%;
+    /* border: 1px solid green; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-direction: column;
+    /* gap: 20PX; */
+    /* gap: 20PX; */
+}
+.a_tag_login,.amazonname_login{
+    height: 30px;
+    width: 100%;
+    /* border: 1px solid green; */
+    margin: 5px 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 10px;
+    color: blue;
+}.a_tag a:hover{
+    text-decoration: underline;
+}
+.amazonname{
+    color: black;
+}
+.other{
+    font-size: 10px;
+    width:85%;
+    /* border: 1px solid red; */
+    color: rgb(151, 151, 144);
+    margin-top: 20px;
+    
+}
+
+.login_create{
+    /* border: 1px solid blueviolet; */
+    width: 100%;
+    margin-top: 20px;
+    height: 30px;
+}
+.login_create button{
+    border: 1px solid rgb(44, 39, 39);
+    background-color: rgb(214, 211, 195);
+    width: 93%;
+    border-radius: 3px;
+ font-weight: 100;
+    height: 30px;
+    /* font-weight: bold; */
+    font-size: 13px;
+}
+.amazonname_login{
+    color: #000;
+}

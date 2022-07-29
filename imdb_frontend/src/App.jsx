@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
   ChakraProvider,
   Box,
@@ -11,16 +12,18 @@ import {
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { Logo } from './Logo';
-import SignUp  from './components/Signup/singup';
+import Signup_login from './components/SIgn_login';
+import Createaccount from './components/Createaccount/createaccount';
 function App() {
   return (
     <ChakraProvider theme={theme}>
       <Box textAlign="center" fontSize="xl">
    
-      <SignUp />
-      
-   
-      </Box>
+    {/* {
+Signup_login()
+    } */}
+    <Createaccount/>
+    </Box>
     </ChakraProvider>
   );
 }
