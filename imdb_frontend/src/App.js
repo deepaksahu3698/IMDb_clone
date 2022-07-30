@@ -12,7 +12,7 @@ function App() {
   return (
     <ChakraProvider theme={theme}>
       <Homepage/>
-      <Search />
+      {/* <Search /> */}
     </ChakraProvider>
   );
 }

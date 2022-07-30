@@ -53,7 +53,7 @@ const Homepage =() => {
 
     return(
         <>
-        <HStack alignItems="flex-start"  m="7%">
+        <HStack alignItems="flex-start"  >
             <div>
               <img className="courouselImg"  src={currentSlide} alt="" />
             </div>
@@ -97,10 +97,11 @@ const Homepage =() => {
                     {/* <img src={slidingData[2].image} alt="" />
                     <img src={slidingData[3].image} alt="" /> */}
                 </div> 
-
             </div>
         </HStack>
-            <Stack direction={['column', 'row']} m="7%" spacing='24px'  >
+                <Text fontSize="32px" color="#F5C518" m="40px 0px 25px 0px " >What To Watch</Text>
+                <Text fontSize="24px" color="white" marginBottom="20px" >Top Picks ❯</Text>
+            <Stack direction={['column', 'row']} spacing='24px'  >
             {
                 slidingData ? 
                 slidingData.slice(0,6).map((pics)=>(
