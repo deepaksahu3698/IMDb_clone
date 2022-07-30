@@ -14,7 +14,8 @@ import {
     Box,
     MenuList,
     IconButton,
-    Divider
+    Divider,
+    Link
 } from '@chakra-ui/react';
 import imdbLogo from '../image/imdb.png';
 import imdbPro from '../image/imdbPro.png';
@@ -43,71 +44,84 @@ export function Search() {
 
     return (
 
-        <><Box backgroundColor={'black'}>
-        <Box display='flex' gap='2%' ml={20} color='white'>
-            <Box mt={2}>
+        <>
+        <Box backgroundColor={'black'} >
+            <Box display='flex' gap='2%' ml={20} color='white' pb={2} >
+                <Link to='/' mt={2}>
 
-                <Image width='65px'  borderRadius='8px' src={imdbLogo} />
-            </Box>
-            <Box mt={1}>
-                <Menu>
-                    <MenuButton>
-                        <Image src={menu}/>    
-                    </MenuButton> 
+                    <Image width='68px' borderRadius='8px' src={imdbLogo} />
+                </Link>
+                <Box mt={1}>
+                    <Menu backgroundColor='black'>
+                        <MenuButton>
+                            <Image width='73px' mt={3} src={menu} />
+                        </MenuButton>
 
-                    <MenuList display="flex">
-                        <Box>
-                            <Box>abc</Box>
-                            <Box>def</Box>
-                        </Box>
-                        <Box>
-                            <Box>abc</Box>
-                            <Box>def</Box>
-                        </Box>
-                    </MenuList>
-                </Menu>
-            </Box>
-            <Box>
-                <Popover autoFocus={false} >
-                    <PopoverTrigger >
-                        <InputGroup >
+                        <MenuList bgColor={'black'} width='1300px'>
+                            <Box>
+                                <Image w='68px' src={imdbLogo} />
+                            </Box>
+                            <Box display={'flex'} gap={80}>
+                                <Box>
+                                    <h1 fs='60px'>
+                                        Movies
+                                    </h1>
+                                </Box>
+                                <Box>
+                                    <h1>
+                                        Tv Shows
+                                    </h1>
+                                </Box>
+                                <Box>
+                                    <headers>
+                                        Awards & Events
+                                    </headers>
+                                </Box>
+                            </Box>
+                        </MenuList>
+                    </Menu>
+                </Box>
+                <Box>
+                    <Popover autoFocus={false} >
+                        <PopoverTrigger >
+                            <InputGroup >
 
-                            <InputRightElement
-                                pointerEvents='none'
-                                children={<SearchIcon color='gray.300' />}
-                            />
-                            <Input w={670} mt={1} type='text' placeholder='Search IMDb' value={inputGiven} onChange={(e) => { setInputGiven(e.target.value) }} />
+                                <InputRightElement
+                                    pointerEvents='none'
+                                    children={<SearchIcon color='gray.300' mt={4} />}
+                                />
+                                <Input w={670} h={8} mt={3} type='text' placeholder='Search IMDb' backgroundColor='white' value={inputGiven} onChange={(e) => { setInputGiven(e.target.value) }} />
 
-                        </InputGroup>
-                    </PopoverTrigger>
-                    <PopoverContent w='80%' marginLeft='80px'  marginRight='400px'>
-                        <PopoverArrow />
-                        <PopoverCloseButton />
-                        <PopoverBody><InputContent props={movieList} /></PopoverBody>
-                    </PopoverContent>
-                </Popover>
-            </Box>
-            <Box mt={2}>
-                <Image width='65px' src={imdbPro}/>
-            </Box>
-            <Box mt={1} h={9}>
-            
-                <Divider orientation='vertical' />
+                            </InputGroup>
+                        </PopoverTrigger>
+                        <PopoverContent w='80%' marginLeft='80px' marginRight='400px'>
+                            <PopoverArrow />
+                            <PopoverCloseButton />
+                            <PopoverBody><InputContent props={movieList} /></PopoverBody>
+                        </PopoverContent>
+                    </Popover>
+                </Box>
+                <Link to='/' mt={3}>
+                    <Image width='65px' src={imdbPro} />
+                </Link>
+                <Box mt={2} h={9}>
 
+                    <Divider orientation='vertical' />
+
+                </Box>
+                <Link to='/' mt={3}>
+
+                    <Image w='80px' h={7} src={watchlist} />
+
+
+                </Link>
+                <Link to='/' mt={3} style={{textDecorationLine:'none'}}>
+                    Sign In
+                </Link>
+                <Link to='/' mt={3} style={{textDecorationLine:'none'}}>
+                    Eng
+                </Link>
             </Box>
-            <Box mt={2}>
-                
-                <Image w='80px' h={7} src={watchlist}/>
-               
-                
-            </Box>
-            <Box mt={2}>
-                Sign In
-            </Box>
-            <Box mt={2}>
-                Eng
-            </Box>
-        </Box>
         </Box>
         </>
     )
