@@ -1,0 +1,96 @@
+.container_creareaccount{
+    height: 600px;
+    width: 30%;
+    margin: 10px auto;
+    background-color: rgb(255, 255, 255);
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+.fromcontainer{
+    /* border: 1px solid red; */
+  width: 90%;
+  height: 640px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+.input_container{
+    border: 1px solid rgb(165, 165, 165);
+
+    width: 95%;
+    height: 490px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* justify-content: center; */
+}
+.createheadder{
+    margin-left: 10px;
+}
+.inputbox{
+    margin-top: 5px;
+    margin-left: 10px;
+    font-weight: 100;
+}
+.createbutton{
+    /* border: 1px solid blueviolet; */
+    width: 100%;
+    margin-top: 20px;
+    height: 30px;
+}
+.createbutton button{
+    border: 1px solid rgb(44, 39, 39);
+    background-color: rgb(218, 192, 47);
+    width: 93%;
+    border-radius: 3px;
+ 
+    height: 30px;
+    font-weight: bold;
+    font-size: 13px;
+}
+.alreadyhaveaccount{
+    /* border: 1px solid green; */
+    font-size: 14px;
+    margin-left: 10px;
+    margin-top:60px;
+}
+span{
+    color: blue;
+}
+span:hover{
+    text-decoration: underline;
+}
+.help_contaire{
+    height: 90px;
+    width: 70%;
+    /* border: 1px solid green; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-direction: column;
+    /* gap: 20PX; */
+    /* gap: 20PX; */
+}
+.a_tag,.amazonname{
+    height: 30px;
+    width: 100%;
+    /* border: 1px solid green; */
+    margin: 5px 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 10px;
+    color: blue;
+}.a_tag a:hover{
+    text-decoration: underline;
+}
+.amazonname{
+    color: black;
+}
