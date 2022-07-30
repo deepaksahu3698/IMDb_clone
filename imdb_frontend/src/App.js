@@ -22,6 +22,7 @@ function App() {
     { Footer() }
 
       <Homepage/>
+
       <Search />
 
     </ChakraProvider>

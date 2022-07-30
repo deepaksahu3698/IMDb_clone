@@ -1,14 +1,14 @@
 body{
     background-color: black !important;
-    margin: 0px 20px 0px 20px;
+    margin: 7% !important;
 }
 .upNextImg{
     height: 130px;
-    weight: 88px;
+    width: 88px;
 }
 .pauseButton{
     height: 32px;
-    weight: 32px;
+    width: 32px;
     margin-bottom: 14px;
 }
 div{
@@ -17,7 +17,7 @@ div{
 
 .courouselImg{
     height: 547px;
-    weight : 849px
+    width : 849px
 }
 .topPicTitle{
     color: white;
