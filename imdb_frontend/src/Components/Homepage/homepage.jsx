@@ -3,9 +3,10 @@ import { Box, Button, HStack, Stack, Text
 import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 import { topPicks } from "../../Redux/state";
+import {Video}  from "../../trailor&FooterComponent/video"
 import css from "./homepage.css"
-
 const Homepage =() => {
 
     const slider =["https://m.media-amazon.com/images/M/MV5BMzM1NGJiZDEtMWY0MC00MzVkLWJiNzItODY0OTgzZjJmOGI5XkEyXkFqcGdeQXVyNjY1MTg4Mzc@._CR91,328,2113,1189_QL75_UX1000_CR0,0,1000,563_.jpg", "https://m.media-amazon.com/images/M/MV5BYTZhOTEzYjgtNzljMy00M2IyLThkZmMtNjdiN2Y5MDEwMWE5XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_QL40_QL75_UX1000_CR0,0,1000,563_.jpg" , "https://m.media-amazon.com/images/M/MV5BNmY1NjQ5YjUtNGNkMy00NmVlLWE1ZjEtMzU3ZTk5N2ZmMTcxXkEyXkFqcGdeQWFybm8@._V1_QL40_QL75_UX1000_CR0,0,1000,563_.jpg" , "https://m.media-amazon.com/images/M/MV5BMWJlNDMwNTItMThkYS00YjFkLWIxOWItN2JiZTI2ZjRjYzNlXkEyXkFqcGdeQWplZmZscA@@._V1_QL40_QL75_UX1000_CR0,0,1000,563_.jpg"]
@@ -22,7 +23,7 @@ const Homepage =() => {
         })
         // .then((res) => )
     }
-    
+    const navigate = useNavigate()
     useEffect(()=>{
         getTopPicks()
     },[])
@@ -45,15 +46,16 @@ const Homepage =() => {
 
     },[])
 
+    function watchList(){
+        fetch()
+    }
 
-
-    console.log(slidingData);
 
 
 
     return(
         <>
-        <HStack alignItems="flex-start"  >
+        <HStack alignItems="flex-start" marginTop="5vh"  >
             <div>
               <img className="courouselImg"  src={currentSlide} alt="" />
             </div>
@@ -105,13 +107,13 @@ const Homepage =() => {
             {
                 slidingData ? 
                 slidingData.slice(0,6).map((pics)=>(
-                    <Box width={200}  bgColor="#1a1a1a" >
+                    <Box key={pics.id} width={200}  bgColor="#1a1a1a" >
                         <img  height="50px" src={pics.image} alt="" />
                         <Box p={3} >
                             <Text className="topPicTitle" > ⭐ 8.7  </Text>
                             <Text className="topPicTitle" >{pics.title}</Text>
-                            <Button className="topPicButton" >Watch now</Button>
-                            <Button className="topPicPauseButton" >Trailer</Button>
+                            <Button className="topPicButton"   >+ Watchlist</Button>
+                            <Button className="topPicPauseButton" onClick={ () =>   navigate(`/trailer/${pics.id}`)    } >Trailer</Button>
                         </Box>
                     </Box>
                 ))  
