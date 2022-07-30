@@ -1,0 +1,58 @@
+body{
+    background-color: black;
+}
+.ImageAndVideoContainer{
+    width: 80vw;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: rgba(5, 5, 5, 0.35) 0px 5px 15px;
+}
+.videointrailor{
+    margin-top: 7vh;
+
+}
+.TrailerImage >img{
+    width: 8vw;
+    position: relative;
+}
+.TrailerImage{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.videohr{
+    width: 20vw;
+    margin: auto;
+    margin-top: 5vh;
+}
+.trailorDetail{
+    color: white;
+    /* background-color: rgb(18,18,18); */
+    margin: auto;
+    padding-left: 2vw;
+    margin-top: 5vh;
+}
+.AddTrailortoWatchListParent{
+    position: relative;
+    top: -9vh;
+    font-size: 2vw;
+    left: -18vw;
+    height: 4vh;
+    text-align: center;
+}
+.AddTrailortoWatchList{
+    margin-top: -1.5vh;
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+.material-symbols-outlined:hover {
+    color:red
+}
