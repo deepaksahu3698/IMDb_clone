@@ -1,0 +1,45 @@
+.footerFirstLine{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    width: 15vw;
+    margin: auto;
+    margin-top: 5vh;
+}
+.footerFirstLine > img, .footerFirstLine > a{
+    width: 2vw;
+}
+.footerSecondLine{
+    width: 55vw;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    color: white;
+    margin-top: 5vh;
+    text-align: center;
+}
+.footerSecondLine>a:hover {
+    text-decoration: underline;
+}
+.footerThirdLine{
+    width: 60vw;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    color: white;
+    margin-top: 2vh;
+    text-align: center;
+}
+.footerThirdLine>a:hover {
+    text-decoration: underline;
+}
+.FooterH2{
+    text-align: center;
+    color: white;
+    margin-top: 2vh;
+}
+.FooterP2{
+    text-align: center;
+    margin-top: 2vh;
+    color: white;
+    font-size: .8vw;
+}
