@@ -1,0 +1,35 @@
+body{
+    background-color: black !important;
+    margin: 0px 20px 0px 20px;
+}
+.upNextImg{
+    height: 130px;
+    weight: 88px;
+}
+.pauseButton{
+    height: 32px;
+    weight: 32px;
+    margin-bottom: 14px;
+}
+div{
+    border-color: black;
+}
+
+.courouselImg{
+    height: 547px;
+    weight : 849px
+}
+.topPicTitle{
+    color: white;
+}
+.topPicButton{
+    color: #5799EF;
+    width: 100%;
+    background-color: #2d2c2d !important;
+    margin-top: 10%;
+}
+.topPicPauseButton{
+    margin-top: 10%;
+    background-color: #1a1a1a !important;
+    color: white;
+}
