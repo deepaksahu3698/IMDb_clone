@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 
 async function connectToDatabase ( ){
-    let uri = `mongodb://localhost:27017/IMDB`
+    let uri = `mongodb://127.0.0.1:27017/IMDB`
     try {
         await mongoose.connect(uri)
         console.log("Connected Successfully")

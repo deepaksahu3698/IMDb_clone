@@ -1,29 +1,29 @@
 import React from 'react';
+
 import {
   ChakraProvider,
-
+  Box,
+  Text,
+  Link,
+  VStack,
+  Code,
+  Grid,
   theme,
 } from '@chakra-ui/react';
-import Homepage from './Components/Homepage/homepage';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { Logo } from './Logo';
-
-import { video } from './trailor&FooterComponent/video'
-import { Footer } from './trailor&FooterComponent/footer'
-
-import { Search } from './searchBar/search';
-
-
+import Signup_login from './components/SIgn_login';
+import Createaccount from './components/Createaccount/createaccount';
 function App() {
   return (
     <ChakraProvider theme={theme}>
-
-     { video()}
-    { Footer() }
-
-      <Homepage/>
-      <Search />
-
+      <Box textAlign="center" fontSize="xl">
+   
+    {/* {
+Signup_login()
+    } */}
+    <Createaccount/>
+    </Box>
     </ChakraProvider>
   );
 }
