@@ -14,7 +14,7 @@ import {Link} from "react-router-dom"
 
     const navigate =useNavigate()
   const handletogocreate=()=>{
-navigate("/register")
+navigate("/createaccount")
   }
 return(
 <div>
@@ -58,9 +58,7 @@ return(
     <div className="button_containet create_account">
    
        <button  onClick={handletogocreate}><p>Create a New Account</p></button>
-       {/* <Routes>
-        <Route path="/createaccount" element={<Createaccount/>}></Route>
-       </Routes> */}
+      
     </div>
     <div className="some_message">
         <p>By signing in, you agree to IMDb's <span> Conditions of Use </span> and <span> Privacy Policy</span></p>

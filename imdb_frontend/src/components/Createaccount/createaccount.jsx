@@ -12,18 +12,21 @@
     FormHelperText,
     Input
   } from '@chakra-ui/react'
+  import { Routes, Route ,useNavigate,Link} from "react-router-dom";
+  
 
   function Createaccount() {
+    const navigate =useNavigate()
     const [name, setName] = React.useState('')
     const [email, setEmail] = React.useState('')
-    const [setpassword, setPassword] = React.useState('')
+    const [password, setPassword] = React.useState('')
     const [resetpassowrd, resetPassword] = React.useState('')
   
     const handle_create= async()=>{
 
-        const payload={name,email,setpassword,resetpassowrd,subscribed:[]}
+        const payload={"postbody":{name,email,password,subscribed:[]}}
         console.log(payload)
-if(setpassword==resetpassowrd){
+if(password==resetpassowrd){
     try {
         let res=await fetch(`http://localhost:8080/posts`,{
             method:"post",
@@ -33,6 +36,8 @@ if(setpassword==resetpassowrd){
             }
         })
         let user_data= await res.json()
+       
+
     } catch (error) {
         console.log(error)
     }
@@ -41,7 +46,14 @@ else{
     alert("Password dosenot match")
 }
 
+handletogocreate()
+
     }
+    const handletogocreate=()=>{
+        navigate("/login")
+          }
+
+  
   
   
     return (
@@ -64,7 +76,7 @@ else{
 </div>
 <div className="inputbox">
 <FormLabel style={{fontWeight:"100",fontSize:"14px"}}>Password</FormLabel>
-  <Input placeholder='at least 8 characters' style={{"height":"30px","border":"0.5px solid black","width":"132%","borderRadius":"3px","padding":"5px"}} type="password" value={setpassword}onChange= {(e)=>setPassword(e.target.value)}/>
+  <Input placeholder='at least 8 characters' style={{"height":"30px","border":"0.5px solid black","width":"132%","borderRadius":"3px","padding":"5px"}} type="password" value={password}onChange= {(e)=>setPassword(e.target.value)}/>
   <img src={passwordcheck} alt="" style={{"marginTop":"10px"}} />
 
 </div>
@@ -77,7 +89,7 @@ else{
     <button onClick={handle_create}>Create your IMDb account</button>
 </div>
 <div className="alreadyhaveaccount">
-    <p>Already have an account? <span><a href=""> Sign-in ►</a></span> </p>
+    <p>Already have an account? <span><Link to={"/login"} > Sign-in ►</Link></span> </p>
 </div>
 </div>
 <div className="help_contaire">

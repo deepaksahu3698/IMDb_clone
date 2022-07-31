@@ -2,6 +2,7 @@ import { ColorModeScript } from '@chakra-ui/react';
 import React, { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import App from './App';
+ import {BrowserRouter as Router} from "react-router-dom"
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker';
 
@@ -9,10 +10,14 @@ const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
 
 root.render(
-  <StrictMode>
+<>
+
     <ColorModeScript />
-    <App />
-  </StrictMode>
+   <Router>
+<App />
+   </Router>
+
+   </>
 );
 
 // If you want your app to work offline and load faster, you can change
