@@ -6,14 +6,14 @@ import {
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { Logo } from './Logo';
-import Homepage from "./Components/Homepage/homepage"
+import Homepage from "./components/Homepage/homepage"
 import { Video } from './trailor&FooterComponent/video'
 import { Footer } from './trailor&FooterComponent/footer'
 import { Search } from './searchBar/search';
 import {Routes, Route} from "react-router-dom" 
-import SignUp from './Components/Signup/singup';
-import Createaccount from './Components/Createaccount/createaccount';
-import Login from './Components/Login/login';
+import SignUp from './components/Signup/singup';
+import Createaccount from './components/Createaccount/createaccount';
+import Login from './components/Login/login';
 
 function App() {
   return (
@@ -32,6 +32,7 @@ function App() {
 
 
     { Footer() }
+    
     </ChakraProvider>
   );
 }

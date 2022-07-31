@@ -57,7 +57,7 @@ export function Search() {
 
   return (
     <>
-      <Box backgroundColor={'black'}>
+      <Box backgroundColor={'black'} >
         <Box display="flex" gap="2%" ml={20} color="white" pb={2}>
           <Link to="/" mt={2}>
             <Image width="68px" borderRadius="8px" src={imdbLogo} />
