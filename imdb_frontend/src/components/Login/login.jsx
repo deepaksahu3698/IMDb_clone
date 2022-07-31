@@ -12,11 +12,16 @@ import {
   Input,
 } from '@chakra-ui/react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
+import { useDispatch,useSelector } from 'react-redux';
+import { users } from '../../Redux/state';
 function Login() {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
+  const {user} = useSelector((store)=>store)
+  console.log(user)
 
   const navigate = useNavigate();
+  const dispatch = useDispatch()
   function haldletocreate() {
     navigate('/createaccount');
   }
@@ -35,30 +40,34 @@ function Login() {
       localStorage.setItem('token', JSON.stringify(user_data.data.token));
       getLoggedIn()
     } catch (error) {
+      alert('Incorrect Email or Password')
       console.log(error);
     }
   }
 
   function getLoggedIn(){
-    let token = localStorage.getItem("token");
-    let body={
-      token:token
-    }
+    let token = JSON.parse(localStorage.getItem("token"));
+   console.log(token)
     let url = `http://localhost:8080/loogedinuser`;
     fetch(url,{
       method:"POST",
-      body: JSON.stringify({token:token}),
+      body: JSON.stringify({
+        token:token
+      }),
       headers:{
         "Content-Type" : "application/json"
       }
     })
     .then(res=>res.json())
-    .then((res)=>console.log(res))
+    .then((res)=>{
+      console.log(res)
+      dispatch(users(res))
+    })
     .catch((error)=>console.log(error))
   }
 
   const gettoken = async () => {
-    let token = localStorage.getItem('token');
+    let token = (localStorage.getItem('token'));
 
     try {
       let res = await fetch(`http://localhost:8080/loogedinuser`, {
@@ -73,7 +82,10 @@ function Login() {
       console.log(error);
     }
   };
-
+   const handleLogin = ( ) =>{
+    logintohome()
+    navigate('/')
+   }
   return (
     <div className="container_creareaccount_login">
       <div className="fromcontainer_login">
@@ -119,7 +131,7 @@ function Login() {
           </div>
 
           <div className="login">
-            <button onClick={logintohome}>Sign-in</button>
+            <button onClick={handleLogin}>Sign-in</button>
           </div>
           <div className="alreadyhaveaccount_login">
             <input type="checkbox" name="" id="" />{' '}

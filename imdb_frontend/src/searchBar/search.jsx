@@ -27,8 +27,11 @@ import { Image } from '@chakra-ui/react';
 import { useEffect, useState, useRef } from 'react';
 import { InputContent } from './inputContent';
 import { useNavigate } from 'react-router';
+import { useSelector } from 'react-redux';
 // import abc from ''
 export function Search() {
+    const user = useSelector((store)=>store.user)
+    console.log(user)
   const Navigate = useNavigate();
   const initialFocusRef = useRef();
   const [inputGiven, setInputGiven] = useState('');
@@ -45,6 +48,11 @@ export function Search() {
   function searchBar(e){
     setInputGiven(e.target.value);
     fetchMovieDetails(inputGiven);
+  }
+
+  const[signOut,setSignOut]=useState(false)
+  const setInLocalStorage = ( ) =>{
+    localStorage.setItem("token","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZTY3NjJmNTBmYzZkZTJlMzM3MTQzYyIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJuYW1lIjoidGVzdCIsInN1YnNjcmliZWQiOltdLCJpYXQiOjE2NTkyNzA3MjZ9.UZpX2PWPPJtCrucXyEHYZSWpAFoeMomu2IzxYbqmEwU")
   }
 
   return (
@@ -118,13 +126,28 @@ export function Search() {
           <Link to="/" mt={3}>
             <Image w="80px" h={7} src={watchlist} />
           </Link>
-          <Text
+          
+          {user && user.name != 'test' ?  (<Text
+            mt={3}
+            style={{ textDecorationLine: 'none' }}
+            onClick={()=>setSignOut(!signOut)}
+          >
+            
+           {user.name}
+          </Text>): <Text
             mt={3}
             style={{ textDecorationLine: 'none' }}
             onClick={()=>Navigate('/signup')}
           >
+            
             Sign In
-          </Text>
+          </Text>}
+          {/* {signOut ? (<Box as='button' borderRadius='md' bg='tomato' color='white' px={4} h={8} position='fixed' top='10' left='1200' onClick={()=> setInLocalStorage}>
+            Sign out
+          </Box>):''} */}
+          {/* <Box as='button' borderRadius='md' bg='tomato' color='white' px={4} h={8}>
+            Button
+          </Box> */}
           <Link to="/" mt={3} style={{ textDecorationLine: 'none' }}>
             Eng
           </Link>

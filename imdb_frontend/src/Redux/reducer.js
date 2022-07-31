@@ -1,7 +1,8 @@
-const { TOP_PICKS } = require('./state');
+const { TOP_PICKS, USER } = require('./state');
 
 const initState = {
   topPick: [],
+  user:''
 };
 
 export const reducer = (state = initState, { type, payload }) => {
@@ -9,6 +10,11 @@ export const reducer = (state = initState, { type, payload }) => {
     case TOP_PICKS: {
       return {
         topPick: [ payload],
+      };
+    }
+    case USER: {
+      return {
+        user: payload,
       };
     }
     default:

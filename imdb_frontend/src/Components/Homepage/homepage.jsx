@@ -1,13 +1,40 @@
-import { Box, Button, HStack, Stack, Text
+import { Box, Button, HStack, Stack, Text,
  } from "@chakra-ui/react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import { topPicks } from "../../Redux/state";
+import { topPicks,users } from "../../Redux/state";
 import {Video}  from "../../trailor&FooterComponent/video"
 import css from "./homepage.css"
 const Homepage =() => {
+    const user = useSelector((store)=>store.user)
+    console.log(user)
+    function getLoggedIn(){
+        let token = JSON.parse(localStorage.getItem("token"));
+       console.log(token)
+       if(token != 'not any user'){
+        let url = `http://localhost:8080/loogedinuser`;
+        fetch(url,{
+          method:"POST",
+          body: JSON.stringify({
+            token:token
+          }),
+          headers:{
+            "Content-Type" : "application/json"
+          }
+        })
+        .then(res=>res.json())
+        .then((res)=>{
+          console.log(res)
+          dispatch(users(res))
+        })
+        .catch((error)=>console.log(error))
+       }
+      }
+// useEffect(()=>{
+//     getLoggedIn()
+// },[])    
 
     const slider =["https://m.media-amazon.com/images/M/MV5BMzM1NGJiZDEtMWY0MC00MzVkLWJiNzItODY0OTgzZjJmOGI5XkEyXkFqcGdeQXVyNjY1MTg4Mzc@._CR91,328,2113,1189_QL75_UX1000_CR0,0,1000,563_.jpg", "https://m.media-amazon.com/images/M/MV5BYTZhOTEzYjgtNzljMy00M2IyLThkZmMtNjdiN2Y5MDEwMWE5XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_QL40_QL75_UX1000_CR0,0,1000,563_.jpg" , "https://m.media-amazon.com/images/M/MV5BNmY1NjQ5YjUtNGNkMy00NmVlLWE1ZjEtMzU3ZTk5N2ZmMTcxXkEyXkFqcGdeQWFybm8@._V1_QL40_QL75_UX1000_CR0,0,1000,563_.jpg" , "https://m.media-amazon.com/images/M/MV5BMWJlNDMwNTItMThkYS00YjFkLWIxOWItN2JiZTI2ZjRjYzNlXkEyXkFqcGdeQWplZmZscA@@._V1_QL40_QL75_UX1000_CR0,0,1000,563_.jpg"]
     const [slidingData, setSlidingData] = useState([]); 
@@ -25,7 +52,8 @@ const Homepage =() => {
     }
     const navigate = useNavigate()
     useEffect(()=>{
-        getTopPicks()
+        getTopPicks();
+        getLoggedIn()
     },[])
 
 
