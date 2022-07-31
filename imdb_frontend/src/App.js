@@ -14,6 +14,7 @@ import {Routes, Route} from "react-router-dom"
 import SignUp from './components/Signup/singup';
 import Createaccount from './components/Createaccount/createaccount';
 import Login from './components/Login/login';
+import { SingleMovie } from './searchBar/singleSearch';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
       <Route path='/signup' element={<SignUp/>} ></Route>
       <Route path='/createaccount' element={<Createaccount/>} ></Route>
       <Route path='/login' element={<Login/>} ></Route>
+      <Route path='/:_id' element={<SingleMovie/>} ></Route>
       </Routes>
 
 
