@@ -11,6 +11,8 @@ import { Video } from './trailor&FooterComponent/video'
 import { Footer } from './trailor&FooterComponent/footer'
 import { Search } from './searchBar/search';
 import {Routes, Route} from "react-router-dom" 
+import SignUp from './Components/Signup/singup';
+import Createaccount from './Components/Createaccount/createaccount';
 
 function App() {
   return (
@@ -19,8 +21,10 @@ function App() {
      {/* { video()} */}
       <Search />
     <Routes>
-      <Route path='/homepage'  element={<Homepage/>} > </Route>
+      <Route path='/'  element={<Homepage/>} > </Route>
       <Route path='/trailer/:id' element={<Video/>} ></Route>
+      <Route path='/signup' element={<SignUp/>} ></Route>
+      <Route path='/createaccount' element={<Createaccount/>} ></Route>
       </Routes>
 
 

@@ -1,7 +1,7 @@
 import { Image,Box,Flex,Text } from '@chakra-ui/react'
 // import abc from ''
 export function InputContent(props) {
-    console.log(props)
+    // console.log(props)
         let data=props.props;
     return (
         <>

@@ -2,7 +2,7 @@ import React from 'react'
 import { Box } from '@chakra-ui/react'
 import { CloseButton, Flex, Spacer, Text, AspectRatio, Image } from '@chakra-ui/react'
 import './video.css'
-import { useParams } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 import { useSelector } from 'react-redux'
 import { topPicks } from '../Redux/state'
 
@@ -10,6 +10,7 @@ import { topPicks } from '../Redux/state'
 export const Video = () => {
 
     let {id} = useParams();
+    let navigate = useNavigate()
 
     let { topPick} = useSelector(state => state);
 
@@ -25,7 +26,7 @@ export const Video = () => {
             </Box> */}
             <Box bg='black' w='50%' p={4} color='white' ml={40}>
                 <Flex >
-                    <Flex alignItems='center'>
+                    <Flex alignItems='center' onClick={()=>navigate('/')}>
                         <CloseButton size='md' />
                         <Text ml={2}>Close</Text>
                     </Flex>
