@@ -14,26 +14,27 @@ import contribute from '../image/contribute.png';
 import topRated from '../image/topRated.png';
 import days from '../image/30days.png';
 import sponsr from '../image/sponsr.png';
+import trailer from '../image/trailer.webp';
 import { Box, Image, Flex, Text, Link, Divider, Button } from '@chakra-ui/react';
 import { useState } from "react";
 
 export function SingleMovie() {
-    // let [data,setData]=useState({});
-    // let {id} = useParams();
-    // console.log(id)
-    // function getData(){
-    //     fetch(`http//:localhost3000/allMovies/${id}`)
-    //     .then((res)=>res)
-    //     .then((e)=>setData(e))
-    //     .catch((err)=>console.log(err))
-    // }
-
-    let data = {
-        fullTitle: "Spider Man:Far from home",
-        year: "2021",
-        imDbRating: "4.1",
-        image: "https://via.placeholder.com/300.png"
+    let [data,setData]=useState({});
+    let {id} = useParams();
+    console.log(id)
+    function getData(){
+        fetch(`http//:localhost3000/allMovies/${id}`)
+        .then((res)=>res)
+        .then((e)=>setData(e))
+        .catch((err)=>console.log(err))
     }
+
+    // let data = {
+    //     fullTitle: "Spider Man:Far from home",
+    //     year: "2021",
+    //     imDbRating: "4.1",
+    //     image: "https://via.placeholder.com/300.png"
+    // }
     return (
         <>
             <Box background={'black'}>
@@ -73,7 +74,7 @@ export function SingleMovie() {
 
                 <Flex ml={'7%'}>
                     <Image h={'400px'} w={'300px'} src={data.image} />
-                    <Image h={'400px'} w={'900px'} src="https://i.ytimg.com/an_webp/eOrNdBpGMv8/mqdefault_6s.webp?du=3000&sqp=CIrXlZcG&rs=AOn4CLAeeiRLxjSmeTKr2pr0DYUO4Or--g" />
+                    <Image h={'400px'} w={'900px'} src={trailer} />
                 </Flex>
                 <Flex mt={'15px'} gap={'7%'} color="white">
                     <Box ml={'7%'}>
