@@ -64,7 +64,9 @@ async function loginUser ( req,res ){
         return res.send({
             data:{
                 token:encrypted_Token
-            }
+                
+            },
+           
         })
         }else{
             error:"Password Does not match"
