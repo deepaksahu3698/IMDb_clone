@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import {
   ChakraProvider,
   Box,
@@ -10,21 +10,19 @@ import {
   Grid,
   theme,
 } from '@chakra-ui/react';
-import { ColorModeSwitcher } from './ColorModeSwitcher';
-import { Logo } from './Logo';
-import Signup_login from './components/SIgn_login';
-import Createaccount from './components/Createaccount/createaccount';
+import { Search } from './searchBar/search';
+import { SingleMovie } from './searchBar/singleSeaech';
+
 function App() {
-  return (
-    <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
-   
-    {/* {
-Signup_login()
-    } */}
-    <Createaccount/>
-    </Box>
-    </ChakraProvider>
+  return (<>
+       <Search/>
+        <SingleMovie />
+        {/* <Routes>
+          <Route path='/:_id' element={<SingleMovie />} />
+        </Routes> */}
+        </>
+     
+ 
   );
 }
 

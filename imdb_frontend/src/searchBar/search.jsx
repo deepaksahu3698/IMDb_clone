@@ -28,7 +28,7 @@ import { useEffect, useState, useRef } from 'react';
 import { InputContent } from './inputContent';
 // import abc from ''
 export function Search() {
-    const initialFocusRef = useRef()
+    // const initialFocusRef = useRef()
     const [inputGiven, setInputGiven] = useState('');
     const [movieList, setMovieList] = useState([]);
     const [search, setSearch] = useState(0);//will be used while debouncing
