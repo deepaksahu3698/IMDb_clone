@@ -80,10 +80,13 @@ async function loginUser ( req,res ){
     }
 }
 async function getLoggedinUser ( req,res ){
+    
     let {token} = req.body
     if(token){
         try {
+            console.log(token)
             let data = jwt.verify(token,SECRET)
+            console.log(data)
             return res.status(200).send({
                 data,
             })

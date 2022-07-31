@@ -1,13 +1,15 @@
 *{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    margin: 0% !important;
-    padding: 0%;
-    box-sizing: border-box;
+    /* margin: 0% !important;
+    padding: 0%; */
+    /* box-sizing: border-box; */
 }
-
+body{
+    margin: 0% !important;
+}
 .container{
     height: 650px;
-    width: 100vw;
+    width: 100%;
     background-color: rgb(235, 225, 212);
     border: 1px solid red;
     margin: 0% !important;
@@ -118,12 +120,12 @@
     margin-top: 5px;
     
 }
-.details_benefits b{
+.details_benefits>b{
 font-weight:900;
 color: black;
 
 }
-.details_benefits p{
+.details_benefits>p{
     text-align: left;
 }
 .other_login{
