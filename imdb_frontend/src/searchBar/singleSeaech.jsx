@@ -11,6 +11,9 @@ import releatedNews from '../image/Related news.png';
 import first from '../image/first.png';
 import second from '../image/second.png';
 import contribute from '../image/contribute.png';
+import topRated from '../image/topRated.png';
+import days from '../image/30days.png';
+import sponsr from '../image/sponsr.png';
 import { Box, Image, Flex, Text, Link, Divider, Button } from '@chakra-ui/react';
 import { useState } from "react";
 
@@ -125,6 +128,19 @@ export function SingleMovie() {
                     </Box>
                 </Flex>
             </Box>
+            <Flex gap={'150px'} ml={'7%'}>
+                <Box>
+                    <Link>
+                        <Image mt='5px' w={'800px'} src={days} />
+                    </Link>
+                    <Link>
+                        <Image mt='30px' w={'800px'} src={topRated} />
+                    </Link>
+                </Box>
+                <Box>
+                    <Image w={'300px'} src={sponsr} />
+                </Box>
+            </Flex>
             <Link >
                 <Image mt={'50px'} ml={'7%'} w={'250px'} src={releatedNews} />
             </Link>
@@ -137,14 +153,14 @@ export function SingleMovie() {
                 </Link>
             </Flex>
             <Box ml={'7%'} mt='30px'>
-                <Image w={'350px'} src={contribute}/>
+                <Image w={'350px'} src={contribute} />
                 <Divider mt={'15px'} orientation="horizontal" />
                 <Link>
-                <Text fontSize={'20px'} mt={'15px'} ml={'10px'}><b>IMDb Answers: Help fill gaps in our data</b></Text>
+                    <Text fontSize={'20px'} mt={'15px'} ml={'10px'}><b>IMDb Answers: Help fill gaps in our data</b></Text>
                 </Link>
                 <Divider mt={'15px'} orientation="horizontal" />
                 <Link>
-                <Text fontSize={'20px'} mt={'15px'} ml={'10px'}><b>Learn more about contributing</b></Text>
+                    <Text fontSize={'20px'} mt={'15px'} ml={'10px'}><b>Learn more about contributing</b></Text>
                 </Link>
                 <Divider mt={'15px'} orientation="horizontal" />
             </Box>
