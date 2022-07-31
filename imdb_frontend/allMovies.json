@@ -1,0 +1,32 @@
+{"allMovies":[
+    { "id":"1",
+      "title": "Spiderman1",
+      "fullTitle": "Spider-Man:No Way Home",
+      "year": "2021",
+      "image":"https://bit.ly/sage-adebayo",
+      "crew":["Tom Holland","Zendaya"  ]
+    },
+    {   "id":"2",
+        "title": "Spiderman2",
+        "fullTitle": "Spider-Man:Far From Home",
+        "year": "2021",
+        "image":"https://bit.ly/sage-adebayo",
+        "crew":["Tom Holland","Zendaya"]
+    },
+    { "id":"3",
+        "title": "Batman1",
+        "fullTitle": "Spider-Man:No Way Home",
+        "year": "2021",
+        "image":"https://bit.ly/sage-adebayo",
+        "crew":["Tom Holland","Zendaya"  ]
+      },
+      {   "id":"4",
+          "title": "Superman2",
+          "fullTitle": "Spider-Man:Far From Home",
+          "year": "2021",
+          "image":"https://bit.ly/sage-adebayo",
+          "crew":["Tom Holland","Zendaya"]
+      }
+
+]
+}
