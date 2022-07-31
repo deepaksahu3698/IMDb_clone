@@ -13,6 +13,7 @@
     Input
   } from '@chakra-ui/react'
   import { Routes, Route ,useNavigate,Link} from "react-router-dom";
+import { useState } from "react";
   
 
   function Createaccount() {
@@ -21,13 +22,21 @@
     const [email, setEmail] = React.useState('')
     const [password, setPassword] = React.useState('')
     const [resetpassowrd, resetPassword] = React.useState('')
+    const[submit,setSubmit]=useState(false)
   
     const handle_create= async()=>{
-
+      setSubmit(true)
         const payload={"postbody":{name,email,password,subscribed:[]}}
         console.log(payload)
-if(password==resetpassowrd){
-    try {
+        if(!email.includes("@gmail.com")){
+          return alert('Please Fill Correct Email id')
+        }else if(password.length < 8){
+          return alert("Password length should be 8")
+        }else if(password != resetpassowrd){
+          return alert("Password did not match")
+        }
+       else if(password==resetpassowrd){
+        try {
         let res=await fetch(`http://localhost:8080/posts`,{
             method:"post",
             body:JSON.stringify(payload)
@@ -88,6 +97,7 @@ handletogocreate()
 <div className="createbutton">
     <button onClick={handle_create}>Create your IMDb account</button>
 </div>
+{/* submitsetSubmit */}
 <div className="alreadyhaveaccount">
     <p>Already have an account? <span onClick={()=>navigate("/login")} > Sign-in ►</span> </p>
 </div>
