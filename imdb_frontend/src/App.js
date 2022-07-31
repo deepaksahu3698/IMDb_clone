@@ -13,6 +13,7 @@ import { Search } from './searchBar/search';
 import {Routes, Route} from "react-router-dom" 
 import SignUp from './Components/Signup/singup';
 import Createaccount from './Components/Createaccount/createaccount';
+import Login from './Components/Login/login';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <Route path='/trailer/:id' element={<Video/>} ></Route>
       <Route path='/signup' element={<SignUp/>} ></Route>
       <Route path='/createaccount' element={<Createaccount/>} ></Route>
+      <Route path='/login' element={<Login/>} ></Route>
       </Routes>
 
 

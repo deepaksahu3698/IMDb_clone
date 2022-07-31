@@ -89,7 +89,7 @@ handletogocreate()
     <button onClick={handle_create}>Create your IMDb account</button>
 </div>
 <div className="alreadyhaveaccount">
-    <p>Already have an account? <span><Link to={"/login"} > Sign-in ►</Link></span> </p>
+    <p>Already have an account? <span onClick={()=>navigate("/login")} > Sign-in ►</span> </p>
 </div>
 </div>
 <div className="help_contaire">
