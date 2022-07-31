@@ -126,3 +126,6 @@ const Homepage =() => {
 }
 
 export default Homepage;
+
+
+// let idx = Math.floor(Math. random () * (11 - 1) + 1)

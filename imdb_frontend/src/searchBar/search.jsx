@@ -15,7 +15,8 @@ import {
     MenuList,
     IconButton,
     Divider,
-    Link
+    Link,
+    Text
 } from '@chakra-ui/react';
 import imdbLogo from '../image/imdb.png';
 import imdbPro from '../image/imdbPro.png';
@@ -26,13 +27,16 @@ import { SearchIcon, HamburgerIcon } from '@chakra-ui/icons';
 import { Image } from '@chakra-ui/react';
 import { useEffect, useState, useRef } from 'react';
 import { InputContent } from './inputContent';
+import { useNavigate } from 'react-router';
 // import abc from ''
 export function Search() {
+    const Navigate = useNavigate()
     const initialFocusRef = useRef()
     const [inputGiven, setInputGiven] = useState('');
     const [movieList, setMovieList] = useState([]);
     const [search, setSearch] = useState(0);//will be used while debouncing
     const [timer, setTimer] = useState(0);//will be used for debouncing
+    
     async function fetchMovieDetails(inputGiven) {
         const res = await fetch(`http://localhost:3000/allMovies?q=${inputGiven}`);
         const data = await res.json();
@@ -115,9 +119,9 @@ export function Search() {
 
 
                 </Link>
-                <Link to='/' mt={3} style={{textDecorationLine:'none'}}>
+                <Text mt={3} style={{textDecorationLine:'none'}} onClick={Navigate('/signup')}>
                     Sign In
-                </Link>
+                </Text>
                 <Link to='/' mt={3} style={{textDecorationLine:'none'}}>
                     Eng
                 </Link>
