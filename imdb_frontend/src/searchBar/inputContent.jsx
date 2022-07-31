@@ -1,7 +1,7 @@
 import { Image,Box,Flex,Text } from '@chakra-ui/react'
 // import abc from ''
 export function InputContent(props) {
-    // console.log(props)
+    console.log('check',props)
         let data=props.props;
     return (
         <>
@@ -16,10 +16,10 @@ export function InputContent(props) {
                     </Text>
                     <Text fontSize='sm'>{e.year}</Text>
                     {/* <Text>{e.crew.map((name)=>(name+' '))}</Text> */}
-                    {e.crew.map((name,index)=>(
+                    {/* {e.crew.map((name,index)=>(
                         (<span>{name}{index<e.crew.length-1?', ':''}</span>)
                         
-                    ))}
+                    ))} */}
                 </Box>
             </Flex>
             </Box> 
