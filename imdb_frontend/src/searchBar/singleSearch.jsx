@@ -23,13 +23,13 @@ import { useEffect, useState } from "react";
 export function SingleMovie() {
     let [data,setData]=useState({});
     let {id} = useParams();
-    console.log('id',id)
+    // console.log('id',id)
 
     async function getData(id) {
         try{
         const res = await fetch(`http://localhost:8080/searchSingleMovie?q=${id}`);
         const e = await res.json();
-        console.log('e',e)
+        // console.log('e',e)
         setData(e.data)
         }catch(err){
             console.log(err);
@@ -90,7 +90,7 @@ export function SingleMovie() {
                     <Image h={'400px'} w={'900px'} src={trailer} />
                 </Flex>
 
-                <Flex mt={'15px'} gap={'7%'} color="white">
+                <Flex pb={'20px'} mt={'15px'} gap={'7%'} color="white">
                     <Box ml={'7%'}>
                         <Link><Image w={'258px'} src={action} /></Link>
                         <Text mt={'5px'} w={'700px'} textAlign='justify' color={'white'}>
@@ -148,18 +148,18 @@ export function SingleMovie() {
                 <Flex gap={'150px'} ml={'7%'}>
                     <Box>
                         <Link>
-                            <Image mt='5px' w={'800px'} src={days} />
+                            <Image mt='15px' w={'800px'} src={days} />
                         </Link>
                         <Link>
                             <Image mt='30px' w={'800px'} src={topRated} />
                         </Link>
                     </Box>
                     <Box>
-                        <Image w={'300px'} src={sponsr} />
+                        <Image mt='15px' w={'300px'} src={sponsr} />
                     </Box>
                 </Flex>
                 <Link >
-                    <Image mt={'50px'} ml={'7%'} w={'250px'} src={releatedNews} />
+                    <Image mt={'0px'} ml={'7%'} w={'250px'} src={releatedNews} />
                 </Link>
                 <Flex mt={'30px'} ml={'7%'} gap={'40px'}>
                     <Link>
@@ -169,17 +169,17 @@ export function SingleMovie() {
                         <Image w={'400px'} src={second} />
                     </Link>
                 </Flex>
-                <Box ml={'7%'} mt='30px' color={"black"}>
+                <Box ml={'7%'} pb={'10px'} mt='30px' color={"black"} backgroundColor='white'>
                     <Image w={'350px'} src={contribute} />
-                    <Divider mt={'15px'} orientation="horizontal" />
+                    <Divider mt={'15px'} orientation="horizontal" backgroundColor={'black'}/>
                     <Link>
                         <Text fontSize={'20px'} mt={'15px'} ml={'10px'}><b>IMDb Answers: Help fill gaps in our data</b></Text>
                     </Link>
-                    <Divider mt={'15px'} orientation="horizontal" />
+                    <Divider mt={'15px'} orientation="horizontal" backgroundColor={'black'}/>
                     <Link>
                         <Text fontSize={'20px'} mt={'15px'} ml={'10px'}><b>Learn more about contributing</b></Text>
                     </Link>
-                    <Divider mt={'15px'} orientation="horizontal" />
+                    <Divider mt={'15px'} orientation="horizontal" backgroundColor={'black'}/>
                 </Box>
             </Box>
 

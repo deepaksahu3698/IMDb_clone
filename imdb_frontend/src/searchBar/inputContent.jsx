@@ -7,11 +7,14 @@ import { NavLink as RouterLink } from "react-router-dom";
 export function InputContent(props) {
     console.log('props',props.props)
     let data = props.props;
-    return (
+    
+    return data.length==0?<Text>Search for Movies or TV Series</Text>
+    :
+    (
         <>
 
             {data.map((e) => (
-                <Link as={RouterLink} to={`/${e.id}`} >
+                <Link as={RouterLink} to={`/${e.id}`} style={{textDecoration:'none'}}>
                     <Box w='100%' color='white' background='black' margin='1px' padding='10px' key={e._id}>
                         <Flex >
                             <Image boxSize='80px' src={e.image} />
@@ -25,6 +28,7 @@ export function InputContent(props) {
                                     (<span>{name}{index < e.crew.length - 1 ? ', ' : ''}</span>)
 
                                 ))} */}
+                                <Text>{e.crew}</Text>
                             </Box>
                         </Flex>
                     </Box>
