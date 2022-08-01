@@ -38,6 +38,11 @@ async function searchSingleMovie ( req,res ){
 async function searchmovie ( req,res ){
     let { q } = req.query
     q=q.toLowerCase()
+    if(q.length==0){
+        return res.send({
+            data:[]
+        })
+    }
     try {
         let data = await allmoviesModel.find()
         data = data.filter((ele)=>{

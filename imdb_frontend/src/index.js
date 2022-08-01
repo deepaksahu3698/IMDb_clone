@@ -5,18 +5,18 @@ import App from './App';
  import {BrowserRouter as Router} from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker';
-import { Provider } from 'react-redux';
-import { store } from './Redux/store';
+// import { Provider } from 'react-redux';
+// import { store } from './Redux/store';
 import { BrowserRouter } from 'react-router-dom';
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
 
 root.render(
   <Router>
-    <Provider store={store}>
+    {/* <Provider store={store}> */}
       <ColorModeScript />
       <App />
-    </Provider>
+    {/* </Provider> */}
   </Router>
 );
 

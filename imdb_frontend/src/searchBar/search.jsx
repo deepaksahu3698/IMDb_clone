@@ -39,10 +39,15 @@ export function Search() {
     const [search, setSearch] = useState(0);//will be used while debouncing
     const [timer, setTimer] = useState(0);//will be used for debouncing
     async function fetchMovieDetails(inputGiven) {
+        try{
         const res = await fetch(`http://localhost:8080/searchmovie?q=${inputGiven}`);
         const data = await res.json();
         console.log('data',data.data)
         setMovieList(data.data)
+        }catch(err){
+            console.log(err)
+            throw err;
+        }
     }
     useEffect(() => {
         fetchMovieDetails(inputGiven)
