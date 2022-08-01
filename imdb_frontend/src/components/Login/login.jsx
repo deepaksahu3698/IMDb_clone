@@ -11,6 +11,10 @@ import {
   FormHelperText,
   Input,
 } from '@chakra-ui/react';
+import { Icon } from 'react-icons-kit'
+import {eyeOff} from 'react-icons-kit/feather/eyeOff'
+import {eye} from 'react-icons-kit/feather/eye'
+import { useToast } from '@chakra-ui/react'
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useDispatch,useSelector } from 'react-redux';
 import { users } from '../../Redux/state';
@@ -20,12 +24,16 @@ function Login() {
   const {user} = useSelector((store)=>store)
   console.log(user)
 
+  const toast = useToast()
+  const[type,setType]=React.useState("password")
+  const[icon,setIcon]=React.useState(eyeOff)
+
   const navigate = useNavigate();
   const dispatch = useDispatch()
   function haldletocreate() {
     navigate('/createaccount');
   }
-  async function logintohome() {
+  async function logintohome(email,password) {
     const payload = { postbody: { email, password } };
     try {
       let res = await fetch(`http://localhost:8080/login`, {
@@ -38,10 +46,27 @@ function Login() {
       let user_data = await res.json();
       console.log(user_data);
       localStorage.setItem('token', JSON.stringify(user_data.data.token));
-      getLoggedIn()
+    //   if(user_data.data.token){
+        getLoggedIn()
+    //   }
     } catch (error) {
       alert('Incorrect Email or Password')
-      console.log(error);
+    
+    return(<>
+        function Check() {
+           toast({
+               title: 'password does not match.',
+   //   description: "To create your account you have.",
+     status: 'error',
+     duration: 3000,
+     isClosable: true,
+           })
+        }
+        Check()
+   
+       </>)
+
+
     }
   }
   React.useEffect(()=>{
@@ -65,6 +90,7 @@ function Login() {
     .then((res)=>{
       console.log(res)
       dispatch(users(res))
+      
     })
     .catch((error)=>console.log(error))
   }
@@ -86,9 +112,71 @@ function Login() {
     }
   };
    const handleLogin = ( ) =>{
-    logintohome()
-    navigate('/')
+let flag=true
+if(!email.includes("@") && !email.includes(".com") && email=="" ){
+    flag=false
+    return(<>
+        function Check() {
+           toast({
+               title: 'Plseae enter correct email.',
+   //   description: "To create your account you have.",
+     status: 'error',
+     duration: 3000,
+     isClosable: true,
+           })
+        }
+        Check()
+   
+       </>)
+}
+
+if(!email.includes("@")){
+    flag=false
+    return(<>
+        function Check() {
+           toast({
+               title: 'Plseae enter correct email.',
+   //   description: "To create your account you have.",
+     status: 'error',
+     duration: 3000,
+     isClosable: true,
+           })
+        }
+        Check()
+   
+       </>)
+}
+if(!email.includes(".com")  ){
+    flag=false
+    return(<>
+        function Check() {
+           toast({
+               title: 'Plseae enter correct emailId.',
+   //   description: "To create your account you have.",
+     status: 'error',
+     duration: 3000,
+     isClosable: true,
+           })
+        }
+        Check()
+   
+       </>)
+}
+
+    logintohome(email,password)
+    // navigate('/')
    }
+   const handle_password=()=>{
+    if(type==="password"){
+        setIcon(eye)
+        setType("text")
+    }
+    else{
+        setIcon(eyeOff)
+        setType("password")
+
+    }
+}
   return (
     <div className="container_creareaccount_login">
       <div className="fromcontainer_login">
@@ -119,6 +207,9 @@ function Login() {
             <FormLabel style={{ fontWeight: '100', fontSize: '14px' }}>
               Password
             </FormLabel>
+            <div className="showpassword">
+
+            
             <Input
               style={{
                 height: '30px',
@@ -127,10 +218,12 @@ function Login() {
                 borderRadius: '3px',
                 padding: '5px',
               }}
-              type="password"
+              type={type}
               value={password}
               onChange={e => setPassword(e.target.value)}
             />
+              <Icon icon={icon}  onClick={handle_password}/> 
+              </div>
           </div>
 
           <div className="login">

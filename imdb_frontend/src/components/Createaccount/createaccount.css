@@ -57,6 +57,13 @@
     font-weight: bold;
     font-size: 13px;
 }
+.passwordicon{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    /* border: 1px solid rebeccapurple; */
+    width: 135%;
+}
 .alreadyhaveaccount{
     /* border: 1px solid green; */
     font-size: 14px;
