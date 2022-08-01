@@ -8,6 +8,7 @@ import { topPicks,users } from "../../Redux/state";
 import {Video}  from "../../trailor&FooterComponent/video"
 import css from "./homepage.css"
 import watchlist from  '../../image/watchlist.png'
+import {Search} from '../../searchBar/search'
 const Homepage =() => {
     let user = useSelector((store)=>store.user)
     // console.log("user",user.subscribed) 
@@ -145,6 +146,7 @@ useEffect(()=>{
     let idx = Math.floor(Math. random () * (11 - 1) + 1)
     return(
         <div>
+             <Search />
         <HStack alignItems="flex-start" marginTop="5vh" margin="5vh 7%">
             <div>
               <img className="courouselImg"  src={currentSlide} alt="" />
@@ -237,8 +239,10 @@ useEffect(()=>{
                     <Text color="white" textAlign='center' m='2vh auto' fontSize="1.2vw">Add items to Your Watchlist</Text>
                     </div>
                  ):( <>
+                 <div style={{display:'flex',flexDirection:"column",justifyContent:"center",alignItems:'center',margin:'auto'}}>
                 <Center> <Text color="white">Sign in to Show Your Watchlist</Text></Center>
-                <Center><Button bgColor='rgb(245,197,24)' color="black">Sign in Imdb </Button></Center>
+                <Center><Button bgColor='rgb(245,197,24)' color="black" marginTop="2vh">Sign in Imdb </Button></Center>
+                </div>
                  </>)
                 
             }

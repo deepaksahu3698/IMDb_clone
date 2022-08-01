@@ -20,7 +20,7 @@ function App() {
     <ChakraProvider theme={theme}>
 
      {/* { video()} */}
-      <Search />
+      {/* <Search /> */}
     <Routes>
       <Route path='/'  element={<Homepage/>} > </Route>
       <Route path='/trailer/:id' element={<Video/>} ></Route>

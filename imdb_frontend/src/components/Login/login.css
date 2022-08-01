@@ -7,7 +7,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 20px;
    
+}
+.Allcontainer {
+    background-color: white;
 }
 .fromcontainer_login{
     /* border: 1px solid red; */

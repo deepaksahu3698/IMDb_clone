@@ -82,6 +82,7 @@ export function Search() {
     const Logout = ( ) =>{
         localStorage.clear()
         navigate('/')
+        window.location.reload()
 
     }
     // let namearr = user.name.split(' ')
