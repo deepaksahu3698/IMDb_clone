@@ -126,3 +126,10 @@ span:hover{
 .amazonname_login{
     color: #000;
 }
+.showpassword{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    /* border: 1px solid rebeccapurple; */
+    width: 135%;
+}
