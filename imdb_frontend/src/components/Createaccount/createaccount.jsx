@@ -12,6 +12,8 @@
     FormHelperText,
     Input
   } from '@chakra-ui/react'
+  import { useToast } from '@chakra-ui/react'
+  import { IconButton } from '@chakra-ui/icons'
   import { Routes, Route ,useNavigate,Link} from "react-router-dom";
 import { useState } from "react";
   
@@ -23,19 +25,161 @@ import { useState } from "react";
     const [password, setPassword] = React.useState('')
     const [resetpassowrd, resetPassword] = React.useState('')
     const[submit,setSubmit]=useState(false)
+    const toast = useToast()
+
+    function handle_check(){
+        let flag=true
+        if(name==""){
+            flag=false
+            return(<>
+             function Check() {
+                toast({
+                    title: 'Plseae enter your name.',
+        //   description: "To create your account you have.",
+          status: 'error',
+          duration: 3000,
+          isClosable: true,
+                })
+             }
+             Check()
+        
+            </>)
+           
+        }
+        if(!email.includes("@") && !email.includes(".com") && email=="" ){
+            flag=false
+            return(<>
+                function Check() {
+                   toast({
+                       title: 'Plseae enter correct email.',
+           //   description: "To create your account you have.",
+             status: 'error',
+             duration: 3000,
+             isClosable: true,
+                   })
+                }
+                Check()
+           
+               </>)
+        }
+
+        if(!email.includes("@")){
+            flag=false
+            return(<>
+                function Check() {
+                   toast({
+                       title: 'Plseae enter correct email.',
+           //   description: "To create your account you have.",
+             status: 'error',
+             duration: 3000,
+             isClosable: true,
+                   })
+                }
+                Check()
+           
+               </>)
+        }
+        if(!email.includes(".com")  ){
+            flag=false
+            return(<>
+                function Check() {
+                   toast({
+                       title: 'Plseae enter correct emailId.',
+           //   description: "To create your account you have.",
+             status: 'error',
+             duration: 3000,
+             isClosable: true,
+                   })
+                }
+                Check()
+           
+               </>)
+        }
+        if(password.length<8){
+            flag=false
+            return(<>
+                function Check() {
+                   toast({
+                       title: 'Password is too sort',
+           //   description: "To create your account you have.",
+             status: 'error',
+             duration: 3000,
+             isClosable: true,
+                   })
+                }
+                Check()
+           
+               </>)
+        }
+ let val=!password.includes("@")
+//  console.log(val)
+//  console.log(password)
+ if(val)
+{
+    flag=false
+            return(<>
+                function Check() {
+                   toast({
+                       title: ' Password must be containe "@" "$" "#" "&" "*" ',
+           //   description: "To create your account you have.
+             status: 'error',
+             duration: 3000,
+             isClosable: true,
+                   })
+                }
+                Check()
+           
+               </>)
+}
+
+let num=!password.includes("5")
+if(num){
+    flag=false
+    return(<>
+        function Check() {
+           toast({
+               title: ' Password must be containe aome number',
+   //   description: "To create your account you have.
+     status: 'error',
+     duration: 3000,
+     isClosable: true,
+           })
+        }
+        Check()
+   
+       </>)
+
+
+}
+if(resetpassowrd!==password){
+    flag=false
+    return(<>
+        function Check() {
+           toast({
+               title: ' Password does not match',
+   //   description: "To create your account you have.
+     status: 'error',
+     duration: 3000,
+     isClosable: true,
+           })
+        }
+        Check()
+   
+       </>)
+}
+if(flag){
+    handle_create(name,email,password)
+}
+
+    }
+
   
-    const handle_create= async()=>{
+    const handle_create= async(name,email,password)=>{
       setSubmit(true)
         const payload={"postbody":{name,email,password,subscribed:[]}}
         console.log(payload)
-        if(!email.includes("@gmail.com")){
-          return alert('Please Fill Correct Email id')
-        }else if(password.length < 8){
-          return alert("Password length should be 8")
-        }else if(password != resetpassowrd){
-          return alert("Password did not match")
-        }
-       else if(password==resetpassowrd){
+       
+       if(password==resetpassowrd){
         try {
         let res=await fetch(`http://localhost:8080/posts`,{
             method:"post",
@@ -95,7 +239,7 @@ handletogocreate()
 
 </div>
 <div className="createbutton">
-    <button onClick={handle_create}>Create your IMDb account</button>
+    <button onClick={handle_check}>Create your IMDb account</button>
 </div>
 {/* submitsetSubmit */}
 <div className="alreadyhaveaccount">

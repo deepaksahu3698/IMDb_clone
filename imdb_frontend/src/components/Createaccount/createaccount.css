@@ -1,3 +1,5 @@
+
+
 .container_creareaccount{
     height: 600px;
     width: 30%;
@@ -7,6 +9,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    /* z-index: 1; */
+
    
 }
 .fromcontainer{
@@ -46,9 +50,9 @@
 .createbutton button{
     border: 1px solid rgb(44, 39, 39);
     background-color: rgb(218, 192, 47);
-    width: 93%;
+    width: 82%;
     border-radius: 3px;
- 
+ margin-left: 10px;
     height: 30px;
     font-weight: bold;
     font-size: 13px;
