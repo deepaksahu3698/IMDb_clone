@@ -1,4 +1,4 @@
-import { createStore } from 'redux';
+import { createStore} from 'redux';
 const { reducer } = require('./reducer');
 
 export const store = createStore(

@@ -30,7 +30,7 @@ import { SearchIcon, HamburgerIcon } from '@chakra-ui/icons';
 import { Image } from '@chakra-ui/react';
 import { useEffect, useState, useRef } from 'react';
 import { InputContent } from './inputContent';
-import Login from '../components/Login/login';
+import Login from '../Components/Login/login';
 // import abc from ''
 export function Search() {
     // const initialFocusRef = useRef()
@@ -126,7 +126,7 @@ export function Search() {
 
 
                 </Link>
-                <Link as={RouterLink}  to='/login' style={{textDecoration:'none'}}>
+                <Link as={RouterLink}  to='/signup' style={{textDecoration:'none'}}>
                     <Box mt={3} >Sign In</Box>
                     
                 </Link>
