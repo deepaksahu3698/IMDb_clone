@@ -19,7 +19,7 @@ import {
 } from '@chakra-ui/react';
 // import {Link} from 'react';
 // import { Link as ReachLink } from "@reach/router";
-import { useParams,NavLink as RouterLink } from "react-router-dom";
+import { NavLink as RouterLink } from "react-router-dom";
 
 import imdbLogo from '../image/imdb.png';
 import imdbPro from '../image/imdbPro.png';
@@ -34,11 +34,32 @@ import Login from '../components/Login/login';
 // import abc from ''
 export function Search() {
     // const initialFocusRef = useRef()
+    
     const [inputGiven, setInputGiven] = useState('');
     const [movieList, setMovieList] = useState([]);
-    const [search, setSearch] = useState(0);//will be used while debouncing
-    const [timer, setTimer] = useState(0);//will be used for debouncing
+    const [timer, setTimer] = useState(0);//used for debouncing
+
+
+    
+    function change(){
+        debounce(600)
+    }
+    function debounce(d){
+        
+        const element = document.getElementById('input');
+      if (timer>0) {clearTimeout(timer)}
+      
+        setTimer(setTimeout(()=>{
+            fetchMovieDetails(inputGiven)
+        },d)
+        )
+      
+    }
+
     async function fetchMovieDetails(inputGiven) {
+
+
+
         try{
         const res = await fetch(`http://localhost:8080/searchmovie?q=${inputGiven}`);
         const data = await res.json();
@@ -50,7 +71,7 @@ export function Search() {
         }
     }
     useEffect(() => {
-        fetchMovieDetails(inputGiven)
+        change()
     },[inputGiven])
 
     return (
