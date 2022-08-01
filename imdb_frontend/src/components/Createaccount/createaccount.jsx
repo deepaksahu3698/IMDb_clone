@@ -31,7 +31,7 @@ import { useState } from "react";
         if(!email.includes("@gmail.com")){
           return alert('Please Fill Correct Email id')
         }else if(password.length < 8){
-          return alert("Password length should be 8")
+          return alert("Password must be atleast 8 caracters")
         }else if(password != resetpassowrd){
           return alert("Password did not match")
         }

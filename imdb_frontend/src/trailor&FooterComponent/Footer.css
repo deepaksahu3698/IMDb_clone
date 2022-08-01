@@ -9,7 +9,7 @@
     width: 2vw;
 }
 .footerSecondLine{
-    width: 55vw;
+    width: 60vw;
     margin: auto;
     display: grid;
     grid-template-columns: repeat(6,1fr);
@@ -21,7 +21,7 @@
     text-decoration: underline;
 }
 .footerThirdLine{
-    width: 60vw;
+    width: 65vw;
     margin: auto;
     display: grid;
     grid-template-columns: repeat(6,1fr);

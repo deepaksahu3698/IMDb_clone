@@ -27,8 +27,9 @@ async function searchmovie ( req,res ){
             let check = ele.fullTitle.toLowerCase()
             return check.includes(q)
         })
+        let newData = data.splice(0,10)
         return res.status(200).send({
-            data,
+            data:newData,
         })
     } catch (error) {
         return res.status(404).send({

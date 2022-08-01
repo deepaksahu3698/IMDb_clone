@@ -9,7 +9,9 @@ import {Video}  from "../../trailor&FooterComponent/video"
 import css from "./homepage.css"
 const Homepage =() => {
     const user = useSelector((store)=>store.user)
-    console.log(user)
+    // console.log(id)
+    console.log( user)
+    
     function getLoggedIn(){
         let token = JSON.parse(localStorage.getItem("token"));
        console.log(token)
