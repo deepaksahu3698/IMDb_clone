@@ -10,7 +10,6 @@ import {
     PopoverAnchor,
     Menu,
     MenuButton,
-
     Box,
     MenuList,
     IconButton,
@@ -114,7 +113,12 @@ export function Search() {
                     </Menu>
                 </Box>
                 <Box>
-                    <Popover autoFocus={false} >
+                    <Popover 
+                    closeOnBlur={true} 
+                    trigger='hover' 
+                    strategy='fixed'  
+                    autoFocus={false}
+                    >
                         <PopoverTrigger >
                             <InputGroup >
 
@@ -129,7 +133,7 @@ export function Search() {
                         <PopoverContent w='80%' marginLeft='80px' marginRight='400px'>
                             <PopoverArrow />
                             <PopoverCloseButton />
-                            <PopoverBody><InputContent props={movieList} /></PopoverBody>
+                            <PopoverBody ><InputContent props={movieList} /></PopoverBody>
                         </PopoverContent>
                     </Popover>
                 </Box>
