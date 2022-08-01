@@ -98,12 +98,13 @@ async function getLoggedinUser ( req,res ){
 
 async function  removeSubscribedItem ( req,res ){
     let { id,item } = req.body
-    console.log(id,item)
+    console.log(id,"id","Line no 101 user")
+    console.log("item",item,"Line no 102 user")
     try {
         let user = await userModel.findById(id)
         console.log(user)
-    let updatedUser = user.subscribed.filter((ele)=>ele._id != item._id)
-    user.subscribed = updatedUser
+        user.subscribed = user.subscribed.filter((ele)=>ele._id != item._id)
+    // user.subscribed = updatedUser
     console.log(user.subscribed)
 
     await user.save()

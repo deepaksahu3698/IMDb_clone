@@ -14,11 +14,14 @@ import {
     MenuList,
     IconButton,
     Divider,
-    Link
+    Link,
+    Text,
+    Button,
+    Portal
 } from '@chakra-ui/react';
 // import {Link} from 'react';
 // import { Link as ReachLink } from "@reach/router";
-import { NavLink as RouterLink } from "react-router-dom";
+import { NavLink as RouterLink, useNavigate } from "react-router-dom";
 
 import imdbLogo from '../image/imdb.png';
 import imdbPro from '../image/imdbPro.png';
@@ -30,9 +33,12 @@ import { Image } from '@chakra-ui/react';
 import { useEffect, useState, useRef } from 'react';
 import { InputContent } from './inputContent';
 import Login from '../Components/Login/login';
+import { useSelector } from 'react-redux';
 // import abc from ''
 export function Search() {
     // const initialFocusRef = useRef()
+    const {user} = useSelector(store => store)
+    console.log(user)
     
     const [inputGiven, setInputGiven] = useState('');
     const [movieList, setMovieList] = useState([]);
@@ -72,7 +78,13 @@ export function Search() {
     useEffect(() => {
         change()
     },[inputGiven])
+    const navigate = useNavigate()
+    const Logout = ( ) =>{
+        localStorage.clear()
+        navigate('/')
 
+    }
+    // let namearr = user.name.split(' ')
     return (
 
         <>
@@ -151,10 +163,30 @@ export function Search() {
 
 
                 </Link>
-                <Link as={RouterLink}  to='/signup' style={{textDecoration:'none'}}>
+               
+                {
+                    user ? ( <Link  style={{textDecoration:'none' ,borderRadius:'50%',width:'3.5%',textAlign:"center"}}>
+                    <Popover ml='5' >
+                        <PopoverTrigger>
+                            <Button bgColor='black'color='white' border='none' mt='1' _hover={{ bg: 'black' }}>{user.name}</Button>
+                        </PopoverTrigger>
+                        <Portal >
+                            <PopoverContent>
+                            <PopoverArrow />
+                            <PopoverCloseButton  color='white'/>
+                            <PopoverBody bgColor='black'>
+                                <Button bgColor='black'color='white' ml='20' _hover={{ bg: 'black' }} onClick={Logout}>Log Out</Button>
+                            </PopoverBody>
+                            </PopoverContent>
+                        </Portal>
+                        </Popover>
+                    
+                    
+                </Link>):( <Link as={RouterLink}  to='/signup' style={{textDecoration:'none'}}>
                     <Box mt={3} >Sign In</Box>
                     
-                </Link>
+                </Link>)
+                }
                 <Link  to='/' mt={3} style={{textDecoration:'none'}}>
                     Eng
                 </Link>

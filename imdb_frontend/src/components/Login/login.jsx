@@ -90,6 +90,7 @@ function Login() {
     .then((res)=>{
       console.log(res)
       dispatch(users(res))
+      navigate('/')
       
     })
     .catch((error)=>console.log(error))
