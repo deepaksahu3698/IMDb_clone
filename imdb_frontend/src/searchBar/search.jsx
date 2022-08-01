@@ -17,6 +17,10 @@ import {
     Divider,
     Link
 } from '@chakra-ui/react';
+// import {Link} from 'react';
+// import { Link as ReachLink } from "@reach/router";
+import { useParams,NavLink as RouterLink } from "react-router-dom";
+
 import imdbLogo from '../image/imdb.png';
 import imdbPro from '../image/imdbPro.png';
 import menu from '../image/menu.png';
@@ -26,6 +30,7 @@ import { SearchIcon, HamburgerIcon } from '@chakra-ui/icons';
 import { Image } from '@chakra-ui/react';
 import { useEffect, useState, useRef } from 'react';
 import { InputContent } from './inputContent';
+import Login from '../components/Login/login';
 // import abc from ''
 export function Search() {
     // const initialFocusRef = useRef()
@@ -34,20 +39,21 @@ export function Search() {
     const [search, setSearch] = useState(0);//will be used while debouncing
     const [timer, setTimer] = useState(0);//will be used for debouncing
     async function fetchMovieDetails(inputGiven) {
-        const res = await fetch(`http://localhost:3000/allMovies?q=${inputGiven}`);
+        const res = await fetch(`http://localhost:8080/searchmovie?q=${inputGiven}`);
         const data = await res.json();
-        setMovieList(data)
+        console.log('data',data.data)
+        setMovieList(data.data)
     }
     useEffect(() => {
         fetchMovieDetails(inputGiven)
-    }, [inputGiven])
+    },[inputGiven])
 
     return (
 
         <>
         <Box backgroundColor={'black'} >
             <Box display='flex' gap='2%' ml={20} color='white' pb={2} >
-                <Link to='/' mt={2}>
+                <Link as={RouterLink} to='/' mt={2}>
 
                     <Image width='68px' borderRadius='8px' src={imdbLogo} />
                 </Link>
@@ -90,7 +96,7 @@ export function Search() {
                                     pointerEvents='none'
                                     children={<SearchIcon color='gray.300' mt={4} />}
                                 />
-                                <Input w={670} h={8} mt={3} type='text' placeholder='Search IMDb' backgroundColor='white' value={inputGiven} onChange={(e) => { setInputGiven(e.target.value) }} />
+                                <Input w={670} h={8} mt={3} type='text' placeholder='Search IMDb' color='black' backgroundColor={'white'} value={inputGiven} onChange={(e) => { setInputGiven(e.target.value) }} />
 
                             </InputGroup>
                         </PopoverTrigger>
@@ -101,7 +107,7 @@ export function Search() {
                         </PopoverContent>
                     </Popover>
                 </Box>
-                <Link to='/' mt={3}>
+                <Link  to='/' mt={3}>
                     <Image width='65px' src={imdbPro} />
                 </Link>
                 <Box mt={2} h={9}>
@@ -109,16 +115,17 @@ export function Search() {
                     <Divider orientation='vertical' />
 
                 </Box>
-                <Link to='/' mt={3}>
+                <Link  to='/watchlist' mt={3}>
 
                     <Image w='80px' h={7} src={watchlist} />
 
 
                 </Link>
-                <Link to='/' mt={3} style={{textDecorationLine:'none'}}>
-                    Sign In
+                <Link as={RouterLink}  to='/login' style={{textDecoration:'none'}}>
+                    <Box mt={3} >Sign In</Box>
+                    
                 </Link>
-                <Link to='/' mt={3} style={{textDecorationLine:'none'}}>
+                <Link  to='/' mt={3} style={{textDecoration:'none'}}>
                     Eng
                 </Link>
             </Box>

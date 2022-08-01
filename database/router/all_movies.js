@@ -17,22 +17,44 @@ async function getAllMovies ( req,res ){
     }
 }
 
+async function searchSingleMovie ( req,res ){
+    let { q } = req.query
+    console.log(q)
+    let id=q
+    // q=q.toLowerCase()
+    try {
+        let data = await allmoviesModel.findOne({id})
+        
+        return res.status(200).send({
+            data,
+        })
+    } catch (error) {
+        return res.status(404).send({
+            error:"error in fetching data"
+        })
+    }
+}
 
-
-// async function get_Top_pics ( req,res ){
-//     try {
-// let data = await TopMoviesModel.find()
-//         console.log(data)
-//         return res.status(200).send({
-//             data,
-//         })
-//     } catch (error) {
-//         return res.status(404).send({
-//             error:"error in fetching data"
-//         })
-//     }
-// }
-// route.get('/movies/Top_pics',get_Top_pics)
+async function searchmovie ( req,res ){
+    let { q } = req.query
+    q=q.toLowerCase()
+    try {
+        let data = await allmoviesModel.find()
+        data = data.filter((ele)=>{
+            let check = ele.fullTitle.toLowerCase()
+            return check.includes(q)
+        })
+        return res.status(200).send({
+            data,
+        })
+    } catch (error) {
+        return res.status(404).send({
+            error:"error in fetching data"
+        })
+    }
+}
+route.get('/searchSingleMovie',searchSingleMovie)
 route.get('/allmovies',getAllMovies)
+route.get('/searchmovie',searchmovie)
 
 module.exports = route;
