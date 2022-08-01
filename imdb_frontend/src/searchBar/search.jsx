@@ -126,7 +126,7 @@ export function Search() {
 
 
                 </Link>
-                <Link as={RouterLink}  to='/login' style={{textDecoration:'none'}}>
+                <Link as={RouterLink}  to='/signup' style={{textDecoration:'none'}}>
                     <Box mt={3} >Sign In</Box>
                     
                 </Link>
