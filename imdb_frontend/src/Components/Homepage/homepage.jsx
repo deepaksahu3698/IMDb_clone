@@ -241,7 +241,7 @@ useEffect(()=>{
                  ):( <>
                  <div style={{display:'flex',flexDirection:"column",justifyContent:"center",alignItems:'center',margin:'auto'}}>
                 <Center> <Text color="white">Sign in to Show Your Watchlist</Text></Center>
-                <Center><Button bgColor='rgb(245,197,24)' color="black" marginTop="2vh">Sign in Imdb </Button></Center>
+                <Center><Button bgColor='rgb(245,197,24)' color="black" marginTop="2vh" onClick={()=>navigate('/signup')}>Sign in Imdb </Button></Center>
                 </div>
                  </>)
                 
