@@ -17,10 +17,32 @@ async function getAllMovies ( req,res ){
     }
 }
 
+async function searchSingleMovie ( req,res ){
+    let { q } = req.query
+    console.log(q)
+    let id=q
+    // q=q.toLowerCase()
+    try {
+        let data = await allmoviesModel.findOne({id})
+        
+        return res.status(200).send({
+            data,
+        })
+    } catch (error) {
+        return res.status(404).send({
+            error:"error in fetching data"
+        })
+    }
+}
 
 async function searchmovie ( req,res ){
     let { q } = req.query
     q=q.toLowerCase()
+    if(q.length==0){
+        return res.send({
+            data:[]
+        })
+    }
     try {
         let data = await allmoviesModel.find()
         data = data.filter((ele)=>{
@@ -36,7 +58,7 @@ async function searchmovie ( req,res ){
         })
     }
 }
-
+route.get('/searchSingleMovie',searchSingleMovie)
 route.get('/allmovies',getAllMovies)
 route.get('/searchmovie',searchmovie)
 

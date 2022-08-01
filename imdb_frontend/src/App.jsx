@@ -1,39 +1,41 @@
-// import React from 'react';
+import React from 'react';
+import {
+  ChakraProvider,
 
-// import {
-//   ChakraProvider,
-//   Box,
-//   Text,
-//   Link,
-//   VStack,
-//   Code,
-//   Grid,
-//   theme,
-// } from '@chakra-ui/react';
-// import { ColorModeSwitcher } from './ColorModeSwitcher';
-// import { Logo } from './Logo';
-// import Signup_login from './components/SIgn_login';
-// import Createaccount from './components/Createaccount/createaccount';
-// import SignUp from "./components/Signup/singup"
-// import Login from "./components/Login/login"
-// import { BrowserRouter as Router,Route,Routes } from "react-router-dom";
-// function App() {
-//   return (
-//     <ChakraProvider theme={theme}>
-//       <Box textAlign="center" fontSize="xl">
-   
-//       <Routes>
-//     <Route path="/" element={<SignUp/>}></Route>
-//     <Route path="/createaccount" element={<Createaccount/>}></Route>
-//     <Route path="/login" element={<Login />}></Route>
-//  </Routes>
+  theme,
+} from '@chakra-ui/react';
+import { ColorModeSwitcher } from './ColorModeSwitcher';
+import { Logo } from './Logo';
+import Homepage from "./components/Homepage/homepage"
+import { Video } from './trailor&FooterComponent/video'
+import { Footer } from './trailor&FooterComponent/footer'
+import { Search } from './searchBar/search';
+import { Routes, Route } from "react-router-dom"
+import SignUp from './components/Signup/singup';
+import Createaccount from './components/Createaccount/createaccount';
+import Login from './components/Login/login';
+import { SingleMovie } from './searchBar/singleSearch';
 
-    
-  
+function App() {
+  return (
+    <ChakraProvider theme={theme}>
 
-//     </Box>
-//     </ChakraProvider>
-//   );
-// }
+      {/* { video()} */}
+      <Search />
+      <Routes>
+        <Route path='/' element={<Homepage />} /> 
+        <Route path='/trailer/:id' element={<Video />} />
+        <Route path='/signup' element={<SignUp />} />
+        <Route path='/createaccount' element={<Createaccount />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/:id' element={<SingleMovie />} />
+      </Routes>
 
-// export default App;
+
+
+      {Footer()}
+    </ChakraProvider>
+  );
+}
+
+export default App;

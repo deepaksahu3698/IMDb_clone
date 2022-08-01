@@ -23,6 +23,7 @@ app.get('/',(req,res)=>{
 app.use(userRoute)
 app.use(topPics)
 app.use(all_movies_route)
+
 app.use(slidingImage)
 connectToDatabase().then(()=>{
     app.listen(8080,(()=>{

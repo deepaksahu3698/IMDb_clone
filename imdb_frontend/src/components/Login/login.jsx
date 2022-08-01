@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import './login.css';
 
@@ -44,7 +44,10 @@ function Login() {
       console.log(error);
     }
   }
-
+  React.useEffect(()=>{
+    getLoggedIn()
+  },[])
+  
   function getLoggedIn(){
     let token = JSON.parse(localStorage.getItem("token"));
    console.log(token)
