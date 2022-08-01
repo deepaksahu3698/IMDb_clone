@@ -6,7 +6,6 @@ const TopMoviesModel = require("../Database/Top_pics")
 async function getTopPics ( req,res ){
     try {
         let data = await TopMoviesModel.find()
-        console.log(data)
         return res.status(200).send({
             data,
         })

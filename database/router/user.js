@@ -9,7 +9,6 @@ let jsonParser = bodyParser.json()
 
 async function createUser(req, res) {
     let userBody = req.body.postbody
-    console.log(userBody)
 
     let existingUser = await userModel.findOne({
         email: userBody.email
@@ -29,15 +28,14 @@ async function createUser(req, res) {
 
 async function addtoSubscribe(req, res) {
     let userBody = req.body.postbody
-
     let existingUser = await userModel.findOne({
         email: userBody.email
     })
     existingUser.subscribed.push(userBody.Item)
 
     await existingUser.save()
-    return res.status(404).send({
-        existingUser,
+    return res.status(200).send({
+        data:existingUser,
     })
 }
 async function loginUser ( req,res ){
@@ -84,7 +82,6 @@ async function getLoggedinUser ( req,res ){
     let {token} = req.body
     if(token){
         try {
-            console.log(token)
             let data = jwt.verify(token,SECRET)
             console.log(data)
             return res.status(200).send({
@@ -104,11 +101,13 @@ async function  removeSubscribedItem ( req,res ){
     console.log(id,item)
     try {
         let user = await userModel.findById(id)
-
-    let updatedUser = user.subscribed.filter((ele)=>ele != item)
+        console.log(user)
+    let updatedUser = user.subscribed.filter((ele)=>ele._id != item._id)
     user.subscribed = updatedUser
+    console.log(user.subscribed)
 
     await user.save()
+    console.log(user.subscribed)
     return res.status(200).send({
         data:user
     })
