@@ -5,7 +5,7 @@ import { NavLink as RouterLink } from "react-router-dom";
 
 // import abc from ''
 export function InputContent(props) {
-    console.log('props',props.props)
+    // console.log('props',props)
     let data = props.props;
     
     return data.length==0?<Text>Search for Movie or TV Series</Text>
