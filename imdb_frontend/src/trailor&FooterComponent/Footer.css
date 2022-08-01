@@ -1,9 +1,12 @@
+
+
 .footerFirstLine{
     display: grid;
     grid-template-columns: repeat(4,1fr);
     width: 15vw;
     margin: auto;
     margin-top: 5vh;
+  
 }
 .footerFirstLine > img, .footerFirstLine > a{
     width: 2vw;

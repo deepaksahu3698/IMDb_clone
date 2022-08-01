@@ -2,7 +2,7 @@ import React from 'react'
 import './Footer.css'
 export const Footer = () => {
   return (
-    <>
+    <div className='footer_container'>
    
   <div className='footerFirstLine'>
    <a href='https://facebook.com/imdb'> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFGUlEQVR4nOWb+28UVRTHBwz+5At0d7aE+CTR8JNGQeKfYDREBCX+gFFMEw2RiO3cIUAXiA8sFv3BH0wkJpBWiDEYEvyBGGGtVEBAK48mNZEYKoQKbefe6T6m3en1nNmltnbZncedOzvdk5xkX3P3fL5zz9y3ooRs6rtmMqWxVeDpFKH7VcLOpgi7pGpsGN6PoZdew2f4nca+gtdt4C/itWHHF4qldGMpQO1OafQ8AE4ADPfncC2UAcJ0pFqNp6LmqmoL0jfugmBbVEL7/ANXd1WjF/E/7m29fmfUvJO26B1jAQS2vVyNQwGfKQQbBqG33a8b8yNE53Ogiq4F+H9kgc8QgrChJKEblDSfKxU9oRuLIYCeqMArpMbxRIvxiBT4JsJeAOVHooau4EzVzDXhkUM1A/BP6gC0Vlp0CE+JJWl+e7l9jhzQpXcpzXyeMHh46n5XB1Be/bAAEfgcgN9bBzD+HGptoHSIQ87XcmDY5Q9eN1+WHeyjbSZ960Du9EdHCj/tO2ll9p+2Mp2nrMynRwvd5Nv8iTV7sueW7TSvLCTU9lgTVnmCd9p5jVEZ0Is2UavjB6ub5fkFznmRu7PC6i+y5z38j5HUjYdd4mMPT04n57V9uV/Hivxvl9DTbO3e3G/eUoF2I1vtqq+xdTLg9/RYGeAY9wPvR4BSKtBXq8I7AxtCr4cNTw7me4Bhwi+8bwEIHXxgw8g9t777hO4IG/6ZdvOybfPRIPD+BXC8rSI8judlDGl7B4rdQeGDCIAjyIrzCTjREDb84++zQYjdilIAxzW6sZIAXpoVX47tuwj4oALgzNJ0eN1YGjY8+sWrthcB8pn+8cyKz7N9i7cyU3QsC8nIE1Obvt0yBMhadr9L+MIrX2Z/DzOWaV1kGdUffbzIr7qhP9JXPBZ6PBrtLd19nLcPNHXt3sFybgTAai9BALtpI7tPcRYtJMCXBXBlj2035Uy5aWwldn621ZsAsuIBAbYquFzVqALAg7ATW4AzDSuAxn7BWZ+/GlUA8EsowFCjCoAjX0gBajWwAAWltEYfvLDl7eaAa8KAZuZtIf0EvPmKqGUumQL0X7OPi6kBbAj7AQNxE+Bg79gxQTXgsrBmUKYAWw7lfxYRM/gpHAgdiJsAz3422i9IgC5MgfdiJoD90BYzKyQFCN2Bg6GVcRIA1xEE3X2eJGxFeTgcHwEGmS2o604nUptY4uaMUOCckiVAz5/jGUHVv2/KjBBrD1rgg5tZ/o3O3Nlq7hayWhkotKAa8KH0SVG3JiOWJt14csq8sLMg+kejCIApP2OhFPfbNY4AxvqKS2PwJWsAAYxbbrUNe3G0LgTQWLoiPFoiPXgHdI2vzVYBcFtvzY3W8MM3Z6sATTprrgo/2SJo9PvZJwA96mqLjJMKpU1SwhckIxMAWDxskioZbooWvWQWjQB0QtXMlzzB3zToMHwcewGgm+8L3rE0nyty5Ui2APDU/0ZZzW/zLwBaM58HhR2OoQCHhO4YhwK74iIArvlhzELgJ610YGJX3Qvg5LzL5s6PBTkyE6oAGqPhHpmZYthPwL239SIAPOx+lHZo6j9zDlOsA78RlQD433AjXg+1ytcyHECpOiNudpkKFIBBd31n1X2/sg2DwUkV53hraALQC1D+2/PJ8N1R81a1pEaX46Tj/7ff+ROAngP/QNXp01Fz+bJEy2gK8vR5PF8MbF+DnwS/Aj7MSydEiuXX+NkJ/I1zFrmVPofXhh3fv5fxLIi8D7TvAAAAAElFTkSuQmCC" alt="" /></a>
@@ -28,7 +28,7 @@ export const Footer = () => {
   </div>
   <h2 className='FooterH2'>an amazon company</h2>
   <p className='FooterP2'>©1990-2022 by IMDb.com, Inc.</p>
-    </>
+    </div>
   )
 }
 

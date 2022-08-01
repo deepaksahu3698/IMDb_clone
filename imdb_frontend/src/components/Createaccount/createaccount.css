@@ -1,4 +1,8 @@
 
+.all_conatiner{
+    background-color: white;
+    margin-top: 50px;
+}
 
 .container_creareaccount{
     height: 600px;
@@ -10,6 +14,7 @@
     align-items: center;
     justify-content: center;
     /* z-index: 1; */
+
 
    
 }

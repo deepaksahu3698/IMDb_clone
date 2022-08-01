@@ -32,7 +32,7 @@ import { useEffect, useState, useRef } from 'react';
 import { InputContent } from './inputContent';
 import Login from '../components/Login/login';
 // import abc from ''
-export function Search() {
+function Search() {
     // const initialFocusRef = useRef()
     const [inputGiven, setInputGiven] = useState('');
     const [movieList, setMovieList] = useState([]);
@@ -138,3 +138,4 @@ export function Search() {
         </>
     )
 }
+export default Search

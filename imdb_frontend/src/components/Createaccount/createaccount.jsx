@@ -18,6 +18,7 @@
   import { useToast } from '@chakra-ui/react'
   import { IconButton } from '@chakra-ui/icons'
   import { Routes, Route ,useNavigate,Link} from "react-router-dom";
+  import Search from "../../searchBar/search"
 import { useState } from "react";
   
 
@@ -227,6 +228,7 @@ handletogocreate()
 }
   
     return (
+        <div className="all_conatiner">
         <div className="container_creareaccount">
       <div className="fromcontainer">
 <img src={imdblogo} alt=""  />
@@ -277,6 +279,7 @@ handletogocreate()
 <p>© 1996-2022, Amazon.com, Inc. or its affiliates</p>
     </div>
 </div>
+      </div>
       </div>
       </div>
     )

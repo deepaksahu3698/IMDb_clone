@@ -7,6 +7,7 @@ import { useNavigate } from "react-router";
 import { topPicks,users } from "../../Redux/state";
 import {Video}  from "../../trailor&FooterComponent/video"
 import css from "./homepage.css"
+import Search from "../../searchBar/search"
 const Homepage =() => {
     const user = useSelector((store)=>store.user)
     // console.log("user",user.subscribed) 
@@ -139,6 +140,7 @@ useEffect(()=>{
     let idx = Math.floor(Math. random () * (11 - 1) + 1)
     return(
         <>
+        <Search/>
         <HStack alignItems="flex-start" marginTop="5vh" margin="5vh 7%">
             <div>
               <img className="courouselImg"  src={currentSlide} alt="" />
