@@ -39,7 +39,28 @@ export function Search() {
     const [movieList, setMovieList] = useState([]);
     const [search, setSearch] = useState(0);//will be used while debouncing
     const [timer, setTimer] = useState(0);//will be used for debouncing
+
+
+    
+    function change(){
+        debounce(600)
+    }
+    function debounce(d){
+        
+        const element = document.getElementById('input');
+      if (timer>0) {clearTimeout(timer)}
+      
+        setTimer(setTimeout(()=>{
+            fetchMovieDetails(inputGiven)
+        },d)
+        )
+      
+    }
+
     async function fetchMovieDetails(inputGiven) {
+
+
+
         try{
         const res = await fetch(`http://localhost:8080/searchmovie?q=${inputGiven}`);
         const data = await res.json();
@@ -51,7 +72,7 @@ export function Search() {
         }
     }
     useEffect(() => {
-        fetchMovieDetails(inputGiven)
+        change()
     },[inputGiven])
 
     return (
