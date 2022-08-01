@@ -9,7 +9,8 @@ import {Video}  from "../../trailor&FooterComponent/video"
 import css from "./homepage.css"
 const Homepage =() => {
     const user = useSelector((store)=>store.user)
-    console.log(user)
+    // console.log("user",user.subscribed) 
+    
     function getLoggedIn(){
         let token = JSON.parse(localStorage.getItem("token"));
        console.log(token)
@@ -36,6 +37,30 @@ const Homepage =() => {
 //     getLoggedIn()
 // },[])    
 
+useEffect(()=>{
+    getLoggedIn()
+  },[])
+  
+  function getLoggedIn(){
+    let token = JSON.parse(localStorage.getItem("token"));
+   console.log(token)
+    let url = `http://localhost:8080/loogedinuser`;
+    fetch(url,{
+      method:"POST",
+      body: JSON.stringify({
+        token:token
+      }),
+      headers:{
+        "Content-Type" : "application/json"
+      }
+    })
+    .then(res=>res.json())
+    .then((res)=>{
+      console.log(res)
+      dispatch(users(res))
+    })
+    .catch((error)=>console.log(error))
+  }
     const slider =["https://m.media-amazon.com/images/M/MV5BMzM1NGJiZDEtMWY0MC00MzVkLWJiNzItODY0OTgzZjJmOGI5XkEyXkFqcGdeQXVyNjY1MTg4Mzc@._CR91,328,2113,1189_QL75_UX1000_CR0,0,1000,563_.jpg", "https://m.media-amazon.com/images/M/MV5BYTZhOTEzYjgtNzljMy00M2IyLThkZmMtNjdiN2Y5MDEwMWE5XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_QL40_QL75_UX1000_CR0,0,1000,563_.jpg" , "https://m.media-amazon.com/images/M/MV5BNmY1NjQ5YjUtNGNkMy00NmVlLWE1ZjEtMzU3ZTk5N2ZmMTcxXkEyXkFqcGdeQWFybm8@._V1_QL40_QL75_UX1000_CR0,0,1000,563_.jpg" , "https://m.media-amazon.com/images/M/MV5BMWJlNDMwNTItMThkYS00YjFkLWIxOWItN2JiZTI2ZjRjYzNlXkEyXkFqcGdeQWplZmZscA@@._V1_QL40_QL75_UX1000_CR0,0,1000,563_.jpg"]
     const [slidingData, setSlidingData] = useState([]); 
     const [currentSlide , setCurrentSlide] = useState("")
@@ -74,16 +99,47 @@ const Homepage =() => {
 
     },[])
 
-    function watchList(){
-        fetch()
+    function addToWatchList(pics){
+        fetch(`http://localhost:8080/subscribe`,{
+            method:"POST",
+            body: JSON.stringify({
+                postbody:{
+                    ...user,
+                    Item:{
+                        ...pics
+                    }
+                }
+            }),
+            headers:{
+                "Content-Type" : "application/json"
+            }
+        })
+        .then((res)=>res.json())
+        .then((res)=>dispatch(users(res)))
+    }
+    console.log("id",user.id)
+    function removeFromWatchList(pics)
+    {
+        fetch(`http://localhost:8080/removetowatchlist`,{
+            method:"POST",
+            body : JSON.stringify({
+                "id": user.id,
+                "item": pics
+            }),
+        headers:{
+            "Content-Type" : "application/json"
+        }
+    })
+    .then((res)=>res.json())
+    .then((res)=>console.log(res))
     }
 
+    // const {user} = useSelector(state=>state)
 
-
-
+    let idx = Math.floor(Math. random () * (11 - 1) + 1)
     return(
         <>
-        <HStack alignItems="flex-start" marginTop="5vh"  >
+        <HStack alignItems="flex-start" marginTop="5vh" margin="5vh 7%">
             <div>
               <img className="courouselImg"  src={currentSlide} alt="" />
             </div>
@@ -129,9 +185,9 @@ const Homepage =() => {
                 </div> 
             </div>
         </HStack>
-                <Text fontSize="32px" color="#F5C518" m="40px 0px 25px 0px " >What To Watch</Text>
-                <Text fontSize="24px" color="white" marginBottom="20px" >Top Picks ❯</Text>
-            <Stack direction={['column', 'row']} spacing='24px'  >
+                <Text fontSize="32px" color="#F5C518" m="40px 7% 25px 7% " >What To Watch</Text>
+                <Text fontSize="24px" color="white" m="20px 7% 20px 7% " >Top Picks ❯</Text>
+            <Stack direction={['column', 'row']} spacing='24px' margin="5vh 7%"  >
             {
                 slidingData ? 
                 slidingData.slice(0,6).map((pics)=>(
@@ -140,8 +196,30 @@ const Homepage =() => {
                         <Box p={3} >
                             <Text className="topPicTitle" > ⭐ 8.7  </Text>
                             <Text className="topPicTitle" >{pics.title}</Text>
-                            <Button className="topPicButton"   >+ Watchlist</Button>
+                            <Button className="topPicButton" onClick={()=>addToWatchList(pics)}   >+ Watchlist</Button>
                             <Button className="topPicPauseButton" onClick={ () =>   navigate(`/trailer/${pics.id}`)    } >Trailer</Button>
+                        </Box>
+                    </Box>
+                ))  
+                :
+                <div></div>
+            }
+            </Stack>
+
+            {/* Watchlist */}
+                <Text fontSize="24px" color="white" m="20px 7% 20px 7% " >Watchlist ❯</Text>
+            <Stack direction={['column', 'row']} spacing='24px' margin="0% 7%"  >
+            {
+                user.subscribed ? 
+                user.subscribed.slice(0,6).map((pics,index)=>(
+                    <Box key={index} width={200}   bgColor="#1a1a1a" >
+                        <img  height="50px" src={pics.image} alt="" />
+                        <Box p={3} >
+                            <Text className="topPicTitle" > ⭐ 8.7  </Text>
+                            <Text className="topPicTitle" >{pics.title}</Text>
+                            <Button className="topPicPauseButton" onClick={ () =>   navigate(`/trailer/${pics.id}`)    } >Trailer</Button>
+                            <Button className="topPicButton" onClick={()=>removeFromWatchList(pics)}   >+ Remove</Button>
+
                         </Box>
                     </Box>
                 ))  
