@@ -37,8 +37,7 @@ export function Search() {
     
     const [inputGiven, setInputGiven] = useState('');
     const [movieList, setMovieList] = useState([]);
-    const [search, setSearch] = useState(0);//will be used while debouncing
-    const [timer, setTimer] = useState(0);//will be used for debouncing
+    const [timer, setTimer] = useState(0);//used for debouncing
 
 
     
@@ -148,7 +147,7 @@ export function Search() {
 
 
                 </Link>
-                <Link as={RouterLink}  to='/login' style={{textDecoration:'none'}}>
+                <Link as={RouterLink}  to='/signup' style={{textDecoration:'none'}}>
                     <Box mt={3} >Sign In</Box>
                     
                 </Link>
