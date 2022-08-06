@@ -1,4 +1,4 @@
-import { Box, Button, Center, HStack, Stack, Text,
+import { Box, Button, Center, HStack, Stack, Text,Image
  } from "@chakra-ui/react";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -9,6 +9,8 @@ import {Video}  from "../../trailor&FooterComponent/video"
 import css from "./homepage.css"
 import watchlist from  '../../image/watchlist.png'
 import {Search} from '../../searchBar/search'
+import amazonPrime from '../../image/amazonPrime.png'
+import BornToday from "./BornToday";
 const Homepage =() => {
     let user = useSelector((store)=>store.user)
     // console.log("user",user.subscribed) 
@@ -35,10 +37,7 @@ const Homepage =() => {
         })
         .catch((error)=>console.log(error))
        }
-      }
-// useEffect(()=>{
-//     getLoggedIn()
-// },[])    
+      }   
 
 useEffect(()=>{
     getLoggedIn()
@@ -147,6 +146,9 @@ useEffect(()=>{
     return(
         <div>
              <Search />
+             <Box background={'black'}>
+                <Image ml={60} w={'70%'} src={amazonPrime} padding='10px' />
+            </Box>
         <HStack alignItems="flex-start" marginTop="5vh" margin="5vh 7%">
             <div>
               <img className="courouselImg"  src={currentSlide} alt="" />
@@ -212,6 +214,7 @@ useEffect(()=>{
                 :
                 <div></div>
             }
+            {/* <Button>left </Button> */}
             </Stack>
 
             {/* Watchlist */}
@@ -233,13 +236,13 @@ useEffect(()=>{
                 )))  
                  :
                  user ?  (
-                    <div style={{display:'flex',flexDirection:"column",justifyContent:"center",alignItems:'center',margin:'auto'}}>
+                    <div style={{display:'flex',flexDirection:"column",justifyContent:"center",alignItems:'center',margin:'auto',marginBottom:'8vh'}}>
                     <img src={watchlist} style={{width:'8vw'}}/>
                     <br/>
                     <Text color="white" textAlign='center' m='2vh auto' fontSize="1.2vw">Add items to Your Watchlist</Text>
                     </div>
                  ):( <>
-                 <div style={{display:'flex',flexDirection:"column",justifyContent:"center",alignItems:'center',margin:'auto'}}>
+                 <div style={{display:'flex',flexDirection:"column",justifyContent:"center",alignItems:'center',margin:'auto',marginBottom:'8vh'}}>
                 <Center> <Text color="white">Sign in to Show Your Watchlist</Text></Center>
                 <Center><Button bgColor='rgb(245,197,24)' color="black" marginTop="2vh" onClick={()=>navigate('/signup')}>Sign in Imdb </Button></Center>
                 </div>
@@ -247,6 +250,42 @@ useEffect(()=>{
                 
             }
             </Stack>
+            <Stack direction={['column', 'row']} spacing='24px' margin="5vh 7%"  >
+            {
+                slidingData ? 
+                slidingData.slice(6,11).map((pics)=>(
+                    <Box key={pics.id} width={200}  bgColor="#1a1a1a" >
+                        <img  height="50px" src={pics.image} alt="" />
+                        <Box p={3} >
+                            <Text className="topPicTitle" > ⭐ 8.7  </Text>
+                            <Text className="topPicTitle" >{pics.title}</Text>
+                            <Button className="topPicButton" onClick={()=>addToWatchList(pics)}   >+ Watchlist</Button>
+                            <Button className="topPicPauseButton" onClick={ () =>   navigate(`/trailer/${pics.id}`)    } >Trailer</Button>
+                        </Box>
+                    </Box>
+                ))  
+                :
+                <div></div>
+            }
+            {/* <Button>left </Button> */}
+            </Stack>
+            <h2 style={{color:'white',marginLeft:'7vw',fontSize:'1.5vw'}}>IMDb Originals</h2>
+        <h6 style={{color:"gray",marginLeft:'7vw'}}>Celebrity interviews, trending entertainment stories, and expert analysis</h6>
+        <div  className="IMDbOriginalsbox">
+           <div>
+           <img src="https://image.tmdb.org/t/p/original//pQ1PjmVu2VoIKixGU8g0TcdBFat.jpg" alt="" />
+           <h3>Warm & Cozy </h3>
+           </div>
+           <div>
+            <img src="https://image.tmdb.org/t/p/original//uuwhLxkLzQVyB6cMd40MBab1SDc.jpg" alt="" />
+            <h3>Brain</h3>
+           </div>
+           <div>
+            <img src="https://image.tmdb.org/t/p/original//kJw73nXlDxooReri4hW5gC48Dou.jpg" alt="" />
+            <h3>Hwajung</h3>
+           </div>
+        </div>
+            <BornToday/>
         </div>
     )
 }

@@ -17,14 +17,13 @@ import sponsr from '../image/sponsr.png';
 import trailer from '../image/trailer.webp';
 import { Box, Image, Flex, Text, Divider, Button,Link } from '@chakra-ui/react';
 import { useEffect, useState } from "react";
+import { Search } from "./search";
 // import {Link} from 'react';
-
-
 export function SingleMovie() {
     let [data,setData]=useState({});
     let {id} = useParams();
-    // console.log('id',id)
-
+    console.log(id)
+    console.log('id',id)
     async function getData(id) {
         try{
         const res = await fetch(`http://localhost:8080/searchSingleMovie?q=${id}`);
@@ -36,11 +35,10 @@ export function SingleMovie() {
             throw err
         }
     }
-
     
     useEffect(()=>{
         getData(id)
-    },[id])
+    },[data])
 
     // let data = {
     //     fullTitle: "Spider Man:Far from home",
@@ -50,6 +48,7 @@ export function SingleMovie() {
     // }
     return (
         <>
+        <Search/>
             <Box background={'black'}>
                 <Image ml={60} w={'70%'} src={amazonPrime} padding='10px' />
             </Box>
@@ -136,7 +135,7 @@ export function SingleMovie() {
                             <Link >
                                 <Text ml={"15px"} pt={'10px'}>+ Add to Watchlist</Text>
                             </Link>
-
+​
                         </Box>
                         <Link>
                             <Image mt={'13px'} width={'300px'} src={meta} />
@@ -182,7 +181,7 @@ export function SingleMovie() {
                     <Divider mt={'15px'} orientation="horizontal" backgroundColor={'black'}/>
                 </Box>
             </Box>
-
+​
         </>
     )
 } 
