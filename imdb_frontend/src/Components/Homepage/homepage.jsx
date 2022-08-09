@@ -7,7 +7,9 @@ import { useNavigate } from "react-router";
 import { topPicks,users } from "../../Redux/state";
 import {Video}  from "../../trailor&FooterComponent/video"
 import css from "./homepage.css"
+
 const Homepage =() => {
+
     const user = useSelector((store)=>store.user)
     // console.log("user",user.subscribed) 
     
