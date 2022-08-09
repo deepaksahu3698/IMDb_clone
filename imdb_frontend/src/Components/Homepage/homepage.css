@@ -33,3 +33,20 @@ div{
     background-color: #1a1a1a !important;
     color: white;
 }
+.IMDbOriginalsbox{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    width: 85vw;
+    margin: auto;
+    gap: 1vw;
+    color: white;
+    margin-top: 3vh;
+}
+.IMDbOriginalsbox > div {
+    width: 26vw;
+    height: 22vw;
+}
+.IMDbOriginalsbox > div > img {
+    width: 100%;
+    height: 100%;
+}

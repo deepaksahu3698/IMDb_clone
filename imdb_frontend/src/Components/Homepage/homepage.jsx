@@ -1,4 +1,4 @@
-import { Box, Button, HStack, Stack, Text,
+import { Box, Button, Center, HStack, Stack, Text,Image
  } from "@chakra-ui/react";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -8,10 +8,12 @@ import { topPicks,users } from "../../Redux/state";
 import {Video}  from "../../trailor&FooterComponent/video"
 import css from "./homepage.css"
 
+
 const Homepage =() => {
 
     const user = useSelector((store)=>store.user)
-    // console.log("user",user.subscribed) 
+
+   
     
     function getLoggedIn(){
         let token = JSON.parse(localStorage.getItem("token"));
@@ -34,17 +36,14 @@ const Homepage =() => {
         })
         .catch((error)=>console.log(error))
        }
-      }
-// useEffect(()=>{
-//     getLoggedIn()
-// },[])    
+      }   
 
 useEffect(()=>{
     getLoggedIn()
   },[])
   
   function getLoggedIn(){
-    let token = JSON.parse(localStorage.getItem("token"));
+      let token = JSON.parse(localStorage.getItem("token"));
    console.log(token)
     let url = `http://localhost:8080/loogedinuser`;
     fetch(url,{
@@ -119,13 +118,14 @@ useEffect(()=>{
         .then((res)=>res.json())
         .then((res)=>dispatch(users(res)))
     }
-    console.log("id",user.id)
+    // console.log("id",user.id)
     function removeFromWatchList(pics)
     {
+        console.log(user._id)
         fetch(`http://localhost:8080/removetowatchlist`,{
             method:"POST",
             body : JSON.stringify({
-                "id": user.id,
+                "id": user._id,
                 "item": pics
             }),
         headers:{
@@ -133,14 +133,21 @@ useEffect(()=>{
         }
     })
     .then((res)=>res.json())
-    .then((res)=>console.log(res))
+    .then((res)=>{
+        console.log(res)
+        dispatch(users(res))
+    })
     }
 
     // const {user} = useSelector(state=>state)
 
     let idx = Math.floor(Math. random () * (11 - 1) + 1)
     return(
-        <>
+        <div>
+             <Search />
+             <Box background={'black'}>
+                <Image ml={60} w={'70%'} src={amazonPrime} padding='10px' />
+            </Box>
         <HStack alignItems="flex-start" marginTop="5vh" margin="5vh 7%">
             <div>
               <img className="courouselImg"  src={currentSlide} alt="" />
@@ -206,30 +213,79 @@ useEffect(()=>{
                 :
                 <div></div>
             }
+            {/* <Button>left </Button> */}
             </Stack>
 
             {/* Watchlist */}
                 <Text fontSize="24px" color="white" m="20px 7% 20px 7% " >Watchlist ❯</Text>
             <Stack direction={['column', 'row']} spacing='24px' margin="0% 7%"  >
             {
-                user.subscribed ? 
-                user.subscribed.slice(0,6).map((pics,index)=>(
+               user.subscribed && user.subscribed.length != 0? 
+               (user.subscribed.slice(0,6).map((pics,index)=>(
                     <Box key={index} width={200}   bgColor="#1a1a1a" >
                         <img  height="50px" src={pics.image} alt="" />
                         <Box p={3} >
                             <Text className="topPicTitle" > ⭐ 8.7  </Text>
                             <Text className="topPicTitle" >{pics.title}</Text>
                             <Button className="topPicPauseButton" onClick={ () =>   navigate(`/trailer/${pics.id}`)    } >Trailer</Button>
-                            <Button className="topPicButton" onClick={()=>removeFromWatchList(pics)}   >+ Remove</Button>
+                            <Button className="topPicButton" onClick={()=>removeFromWatchList(pics)}   >- Remove</Button>
 
                         </Box>
                     </Box>
-                ))  
+                )))  
                  :
-                 <div></div>
+                 user ?  (
+                    <div style={{display:'flex',flexDirection:"column",justifyContent:"center",alignItems:'center',margin:'auto',marginBottom:'8vh'}}>
+                    <img src={watchlist} style={{width:'8vw'}}/>
+                    <br/>
+                    <Text color="white" textAlign='center' m='2vh auto' fontSize="1.2vw">Add items to Your Watchlist</Text>
+                    </div>
+                 ):( <>
+                 <div style={{display:'flex',flexDirection:"column",justifyContent:"center",alignItems:'center',margin:'auto',marginBottom:'8vh'}}>
+                <Center> <Text color="white">Sign in to Show Your Watchlist</Text></Center>
+                <Center><Button bgColor='rgb(245,197,24)' color="black" marginTop="2vh" onClick={()=>navigate('/signup')}>Sign in Imdb </Button></Center>
+                </div>
+                 </>)
+                
             }
             </Stack>
-        </>
+            <Stack direction={['column', 'row']} spacing='24px' margin="5vh 7%"  >
+            {
+                slidingData ? 
+                slidingData.slice(6,11).map((pics)=>(
+                    <Box key={pics.id} width={200}  bgColor="#1a1a1a" >
+                        <img  height="50px" src={pics.image} alt="" />
+                        <Box p={3} >
+                            <Text className="topPicTitle" > ⭐ 8.7  </Text>
+                            <Text className="topPicTitle" >{pics.title}</Text>
+                            <Button className="topPicButton" onClick={()=>addToWatchList(pics)}   >+ Watchlist</Button>
+                            <Button className="topPicPauseButton" onClick={ () =>   navigate(`/trailer/${pics.id}`)    } >Trailer</Button>
+                        </Box>
+                    </Box>
+                ))  
+                :
+                <div></div>
+            }
+            {/* <Button>left </Button> */}
+            </Stack>
+            <h2 style={{color:'white',marginLeft:'7vw',fontSize:'1.5vw'}}>IMDb Originals</h2>
+        <h6 style={{color:"gray",marginLeft:'7vw'}}>Celebrity interviews, trending entertainment stories, and expert analysis</h6>
+        <div  className="IMDbOriginalsbox">
+           <div>
+           <img src="https://image.tmdb.org/t/p/original//pQ1PjmVu2VoIKixGU8g0TcdBFat.jpg" alt="" />
+           <h3>Warm & Cozy </h3>
+           </div>
+           <div>
+            <img src="https://image.tmdb.org/t/p/original//uuwhLxkLzQVyB6cMd40MBab1SDc.jpg" alt="" />
+            <h3>Brain</h3>
+           </div>
+           <div>
+            <img src="https://image.tmdb.org/t/p/original//kJw73nXlDxooReri4hW5gC48Dou.jpg" alt="" />
+            <h3>Hwajung</h3>
+           </div>
+        </div>
+            <BornToday/>
+        </div>
     )
 }
 

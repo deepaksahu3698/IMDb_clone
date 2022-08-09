@@ -1,5 +1,8 @@
 
-
+.Allcontainer{
+    background-color: white;
+    margin-bottom: 20px;
+}
 .container_creareaccount{
     height: 600px;
     width: 30%;
@@ -10,6 +13,7 @@
     align-items: center;
     justify-content: center;
     /* z-index: 1; */
+    margin-top: 20px;
 
    
 }

@@ -189,6 +189,10 @@ import {
 // import {Link} from 'react';
 // import { Link as ReachLink } from "@reach/router";
 import { NavLink as RouterLink, useNavigate } from "react-router-dom";
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6f7ecbd163fa665f535718f9725c9a1f74212dbb
 import imdbLogo from '../image/imdb.png';
 import imdbPro from '../image/imdbPro.png';
 import menu from '../image/menu.png';
@@ -243,6 +247,10 @@ export function Search() {
         localStorage.clear()
         navigate('/')
         window.location.reload()
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6f7ecbd163fa665f535718f9725c9a1f74212dbb
     }
     // let namearr = user.name.split(' ')
     return (
