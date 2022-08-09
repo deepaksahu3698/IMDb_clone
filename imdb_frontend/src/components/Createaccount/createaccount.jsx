@@ -227,6 +227,7 @@ handletogocreate()
 }
   
     return (
+      <div className="Allcontainer">
         <div className="container_creareaccount">
       <div className="fromcontainer">
 <img src={imdblogo} alt=""  />
@@ -277,6 +278,7 @@ handletogocreate()
 <p>© 1996-2022, Amazon.com, Inc. or its affiliates</p>
     </div>
 </div>
+      </div>
       </div>
       </div>
     )

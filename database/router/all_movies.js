@@ -21,7 +21,7 @@ async function searchSingleMovie ( req,res ){
     let { q } = req.query
     console.log(q)
     let id=q
-    // q=q.toLowerCase()
+    q=q.toLowerCase()
     try {
         let data = await allmoviesModel.findOne({id})
         
@@ -37,6 +37,7 @@ async function searchSingleMovie ( req,res ){
 
 async function searchmovie ( req,res ){
     let { q } = req.query
+  
     q=q.toLowerCase()
     if(q.length==0){
         return res.send({

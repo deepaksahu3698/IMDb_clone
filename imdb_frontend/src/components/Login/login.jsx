@@ -90,6 +90,7 @@ function Login() {
     .then((res)=>{
       console.log(res)
       dispatch(users(res))
+      navigate('/')
       
     })
     .catch((error)=>console.log(error))
@@ -178,6 +179,7 @@ if(!email.includes(".com")  ){
     }
 }
   return (
+    <div className="Allcontainer">
     <div className="container_creareaccount_login">
       <div className="fromcontainer_login">
         <img src={imdblogo} alt="" />
@@ -259,6 +261,7 @@ if(!email.includes(".com")  ){
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }

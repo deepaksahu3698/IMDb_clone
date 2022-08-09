@@ -1,0 +1,14 @@
+.bornTodayBox{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    /* border: 1px solid red; */
+    margin-left: 25vw;
+    margin-right: 10vw;
+    margin-top: 8vh;
+}
+.bornTodayBox > img {
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+    display: 2px solid blue;
+}

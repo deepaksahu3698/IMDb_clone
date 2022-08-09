@@ -5,6 +5,7 @@ import google from './googlelogo.png';
 import apple from './apple.png';
 import amazon from './amazonlogo.png';
 import { useNavigate } from 'react-router-dom';
+import {Search} from '../../searchBar/search'
 
 import { Link } from 'react-router-dom';
 
@@ -16,6 +17,7 @@ const SignUp = () => {
 
   return (
     <div>
+       <Search />
       <div className="container">
         <div className="Middle_container">
           <div className="sigup_container">

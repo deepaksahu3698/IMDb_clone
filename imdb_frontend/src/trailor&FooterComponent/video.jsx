@@ -11,6 +11,7 @@ import {
 import './video.css';
 import { useNavigate, useParams } from 'react-router';
 import { useSelector } from 'react-redux';
+import {Search} from '../searchBar/search'
 
 export const Video = () => {
   let { id } = useParams();
@@ -24,6 +25,7 @@ export const Video = () => {
   console.log(data);
   return (
     <>
+     <Search />
       {/* <Box bg='tomato' w='100%' p={4} color='white'>
                 This is the Box
             </Box> */}
@@ -56,11 +58,11 @@ export const Video = () => {
             <img src={data[0].image} alt="" />
             <h3>{data[0].fullTitle}</h3>
             <div className="AddTrailortoWatchListParent">
-              <h1 className="AddTrailortoWatchList">
+              {/* <h1 className="AddTrailortoWatchList">
                 <span className="material-symbols-outlined">
                   playlist_add_circle
                 </span>
-              </h1>
+              </h1> */}
             </div>
           </div>
           <hr className="videohr" />
