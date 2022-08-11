@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/static/css/main.62141cf1.css",
+    "main.js": "/static/js/main.a3132eb5.js",
+    "static/js/377.0e6ae4ed.chunk.js": "/static/js/377.0e6ae4ed.chunk.js",
+    "static/media/amazonPrime.png": "/static/media/amazonPrime.8b95e65c2178a04ad425.png",
+    "static/media/sponsr.png": "/static/media/sponsr.4e3e82e3b210eeb8c1c9.png",
+    "static/media/second.png": "/static/media/second.ddd1720d5e67addd8ea4.png",
+    "static/media/first.png": "/static/media/first.9ad8c8c30c13a783ecce.png",
+    "static/media/trailer.webp": "/static/media/trailer.4559f850df6824cd3343.webp",
+    "static/media/contribute.png": "/static/media/contribute.50a554249daae841b886.png",
+    "static/media/30days.png": "/static/media/30days.a23970ad4b2bc2a67a70.png",
+    "static/media/Related news.png": "/static/media/Related news.20254f0a1d081dcdc3b6.png",
+    "static/media/action.png": "/static/media/action.7a5172c6e1b84eb8e99a.png",
+    "static/media/singleImdb.png": "/static/media/singleImdb.0ab3b020301b59aa8a95.png",
+    "static/media/topRated.png": "/static/media/topRated.cffa01b9a3847c279b56.png",
+    "static/media/netflix.png": "/static/media/netflix.a8559fbacd4676cc8dc1.png",
+    "static/media/share.png": "/static/media/share.fcc20daf28b4c00f8afa.png",
+    "static/media/meta.png": "/static/media/meta.101990755c24d1a7be5f.png",
+    "static/media/increasing.png": "/static/media/increasing.2285a42364cca49e7b0a.png",
+    "static/media/imdb.png": "/static/media/imdb.8efe028db8386e1a8956.png",
+    "static/media/watchlist.png": "/static/media/watchlist.de1c3cc85e07cfc60a03.png",
+    "static/media/menu.png": "/static/media/menu.b8894e44859e89f4ac1a.png",
+    "index.html": "/index.html",
+    "static/media/logo.svg": "/static/media/logo.314a949b75516e3aca4aeb6467362e8d.svg",
+    "main.62141cf1.css.map": "/static/css/main.62141cf1.css.map",
+    "main.a3132eb5.js.map": "/static/js/main.a3132eb5.js.map",
+    "377.0e6ae4ed.chunk.js.map": "/static/js/377.0e6ae4ed.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.62141cf1.css",
+    "static/js/main.a3132eb5.js"
+  ]
+}

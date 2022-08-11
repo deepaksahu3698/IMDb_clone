@@ -54,11 +54,8 @@ import Homepage from "./Components/Homepage/homepage"
 import { Video } from './trailor&FooterComponent/video'
 import { Footer } from './trailor&FooterComponent/footer'
 import { Search } from './searchBar/search';
-<<<<<<< HEAD
 import {Routes, Route} from "react-router-dom"
-=======
-import {Routes, Route} from "react-router-dom" 
->>>>>>> 6f7ecbd163fa665f535718f9725c9a1f74212dbb
+
 import SignUp from './Components/Signup/singup';
 import Createaccount from './Components/Createaccount/createaccount';
 import Login from './Components/Login/login';
@@ -74,13 +71,7 @@ function App() {
       <Route path='/signup' element={<SignUp/>} ></Route>
       <Route path='/createaccount' element={<Createaccount/>} ></Route>
       <Route path='/login' element={<Login/>} ></Route>
-<<<<<<< HEAD
       <Route path='/search/:id' element={<SingleMovie/>} ></Route>
-=======
-
-      <Route path='/search/:id' element={<SingleMovie/>} ></Route>
-
->>>>>>> 6f7ecbd163fa665f535718f9725c9a1f74212dbb
       </Routes>
     { Footer() }
     </ChakraProvider>
