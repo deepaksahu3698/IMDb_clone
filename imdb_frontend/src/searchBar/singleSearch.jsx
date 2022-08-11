@@ -26,7 +26,7 @@ export function SingleMovie() {
     console.log('id',id)
     async function getData(id) {
         try{
-        const res = await fetch(`http://localhost:8080/searchSingleMovie?q=${id}`);
+        const res = await fetch(`https://imdbwebappclone.herokuapp.com/searchSingleMovie?q=${id}`);
         const e = await res.json();
         // console.log('e',e)
         setData(e.data)

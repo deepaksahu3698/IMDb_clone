@@ -36,7 +36,7 @@ function Login() {
   async function logintohome(email,password) {
     const payload = { postbody: { email, password } };
     try {
-      let res = await fetch(`http://localhost:8080/login`, {
+      let res = await fetch(`https://imdbwebappclone.herokuapp.com/login`, {
         method: 'post',
         body: JSON.stringify(payload),
         headers: {
@@ -76,7 +76,7 @@ function Login() {
   function getLoggedIn(){
     let token = JSON.parse(localStorage.getItem("token"));
    console.log(token)
-    let url = `http://localhost:8080/loogedinuser`;
+    let url = `https://imdbwebappclone.herokuapp.com/loogedinuser`;
     fetch(url,{
       method:"POST",
       body: JSON.stringify({
@@ -100,7 +100,7 @@ function Login() {
     let token = (localStorage.getItem('token'));
 
     try {
-      let res = await fetch(`http://localhost:8080/loogedinuser`, {
+      let res = await fetch(`https://imdbwebappclone.herokuapp.com/loogedinuser`, {
         method: 'post',
         body: JSON.stringify({ token: token }),
         headers: {

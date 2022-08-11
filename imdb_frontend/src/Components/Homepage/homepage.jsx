@@ -20,7 +20,7 @@ const Homepage =() => {
         let token = JSON.parse(localStorage.getItem("token"));
        console.log(token)
        if(token != 'not any user'){
-        let url = `http://localhost:8080/loogedinuser`;
+        let url = `https://imdbwebappclone.herokuapp.com/loogedinuser`;
         fetch(url,{
           method:"POST",
           body: JSON.stringify({
@@ -46,7 +46,7 @@ useEffect(()=>{
   function getLoggedIn(){
       let token = JSON.parse(localStorage.getItem("token"));
    console.log(token)
-    let url = `http://localhost:8080/loogedinuser`;
+    let url = `https://imdbwebappclone.herokuapp.com/loogedinuser`;
     fetch(url,{
       method:"POST",
       body: JSON.stringify({
@@ -69,7 +69,7 @@ useEffect(()=>{
     const dispatch = useDispatch()
     const {topPick} = useSelector((state) => state)
     const getTopPicks = async () => {
-         fetch(`http://localhost:8080/toppics`)
+         fetch(`https://imdbwebappclone.herokuapp.com/toppics`)
         .then((res)=>res.json())
         .then((res)=>{
             setSlidingData(res.data)
@@ -102,7 +102,7 @@ useEffect(()=>{
     },[])
 
     function addToWatchList(pics){
-        fetch(`http://localhost:8080/subscribe`,{
+        fetch(`https://imdbwebappclone.herokuapp.com/subscribe`,{
             method:"POST",
             body: JSON.stringify({
                 postbody:{
@@ -123,7 +123,7 @@ useEffect(()=>{
     function removeFromWatchList(pics)
     {
         console.log(user._id)
-        fetch(`http://localhost:8080/removetowatchlist`,{
+        fetch(`https://imdbwebappclone.herokuapp.com/removetowatchlist`,{
             method:"POST",
             body : JSON.stringify({
                 "id": user._id,

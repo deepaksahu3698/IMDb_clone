@@ -188,7 +188,7 @@ if(flag){
        
        if(password==resetpassowrd){
         try {
-        let res=await fetch(`http://localhost:8080/posts`,{
+        let res=await fetch(`https://imdbwebappclone.herokuapp.com/posts`,{
             method:"post",
             body:JSON.stringify(payload)
             ,headers:{
