@@ -7,4 +7,4 @@ IMDb is an online database of information related to films, television series, h
 <img src="https://github.com/deepaksahu3698/IMDb_clone/blob/master/React%20App%20-%20Brave%202022-08-11%2022-14-31%20(1).gif">
 
 ## Tech Stacks
-React || Redux || MongoDb || Node.js || Express.js
+React || Redux || MongoDb || Node.js || Express.js || CSS || Chakra UI || JavaScript
